@@ -1,0 +1,10 @@
+<h1>Chefs</h1>
+
+<br><%= link_to 'Events', events_path %></p>
+
+<% @chefs.each do |chef| %>
+
+<p><%= chef.name %><br>
+<%= chef.description %></p>
+
+<% end %>

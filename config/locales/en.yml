@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    attributes:
+      chef:  
+        login: "Username or email"
+
+en:
+  activerecord:
+    attributes:
+      customer:  
+        login: "Username or email"
