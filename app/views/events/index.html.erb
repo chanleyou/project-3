@@ -1,97 +1,22 @@
+<%= @events.each do |event| %>
 <div class="container">
 
-  <div class="jumbotron" >
-	  <h1 class="display-6">Come eat this shitty food from truck!</h1>
-	  <div class="input-group md-form form-sm form-1 pl-0">
-	    <div class="input-group-prepend">
-	      <span class="input-group-text purple lighten-3" id="basic-text1"><i class="fa fa-search text-white"
-	          aria-hidden="true"></i></span>
-	    </div>
-	    <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-	  </div>
+	<div class="row">
+		<div class="col-12">
+			<h1 class="display-4 mt-2"><%= event.title %></h1>
+			<p class="my-0">Date: <%= event.date %></p>
+			<p class="mt-0 mb-3">Location: <%= event.date %></p>
+			<p><%= event.description %></p>
+		</div>
 	</div>
 
-
-<div class="row align-items-center">
-	<a href="">
-	   <div class="col-md-4">
-	 	 	<div class="card" style="width: 18rem;">
-	 	 		<img src=<%= image_url 'food.jpg' %> style="width:100%;">
-	 	 		<div class="container">
-	 	 			<div class="top-left">
-	 	 				<h2>EVENT TITLE</h2>
-	 	 			</div>
-	 	 			<div class="a-bit-top-left">
-	 	 			<h3><a data-toggle="popover" title="" data-content="Brief Description">info</a></h3>
-	 	 			</div>
-
-	 		 			<div class="bottom-right">
-	 		 				<a>2<img src=<%= image_url 'eye.png' %> width="25px" height="25px"></a>
-	 		 			</div>
-
-	 	 			<div class="bottom-left">
-	 	 				<a>Time: 15:00</a>
-	 	 			</div>
-
-	 	 		</div>
-	 	 	</div>
-
-	   </div>
-	</a>
-
-	<a href="">
-	   <div class="col-md-4">
-	 	 	<div class="card" style="width: 18rem;">
-	 	 		<img src=<%= image_url 'food.jpg' %> style="width:100%;">
-	 	 		<div class="container">
-	 	 			<div class="top-left">
-	 	 				<h2>EVENT TITLE</h2>
-	 	 			</div>
-	 	 			<div class="a-bit-top-left">
-	 	 			<h3><a data-toggle="popover" title="" data-content="Brief Description">info</a></h3>
-	 	 			</div>
-
-	 		 			<div class="bottom-right">
-	 		 				<a>2<img src=<%= image_url 'eye.png' %> width="25px" height="25px"></a>
-	 		 			</div>
-
-	 	 			<div class="bottom-left">
-	 	 				<a>Time: 15:00</a>
-	 	 			</div>
-
-	 	 		</div>
-	 	 	</div>
-
-	   </div>
-	</a>
-
-	<a href="">
-		  <div class="col-md-4">
-			 	<div class="card" style="width: 18rem;">
-			 		<img src=<%= image_url 'food.jpg' %> style="width:100%;">
-			 		<div class="container">
-			 			<div class="top-left">
-			 				<h2>EVENT TITLE</h2>
-			 			</div>
-			 			<div class="a-bit-top-left">
-			 			<h3><a data-toggle="popover" title="" data-content="Brief Description">info</a></h3>
-			 			</div>
-
-				 			<div class="bottom-right">
-				 				<a>2<img src=<%= image_url 'eye.png' %> width="25px" height="25px"></a>
-				 			</div>
-
-			 			<div class="bottom-left">
-			 				<a>Time: 15:00</a>
-			 			</div>
-
-			 		</div>
-			 	</div>
-
-		  </div>
-	</a>
-
-  </div>
+	<div class="row">
+		<div class="col-12">
+			<div class="card bg-light p-3">
+				<p>By: <strong><%= link_to event.chef.name, chef_path(event.chef) %></strong></p>
+				<p><%= event.chef.description %></p>
+			</div>
+		</div>
+	</div>
 </div>
-
-
+<% end %>

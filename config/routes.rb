@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   devise_for :customers, path: 'customers'
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-	resources :chefs do 
+	resources :chefs do
 		resources :events
 	end
-	
+
 	resources :events
 
-  root 'events#index'
+  root 'pages#landingpage'
 end
