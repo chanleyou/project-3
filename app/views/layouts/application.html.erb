@@ -23,7 +23,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<% if chef_signed_in? %>Chef<% elsif customer_signed_in? %>User<% else %>Login<% end %>
+				<% if chef_signed_in? %><%= current_chef.username %><% elsif customer_signed_in? %><%= current_customer.username %><% else %>Login<% end %>
         </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				<% if chef_signed_in? %>
