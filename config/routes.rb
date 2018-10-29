@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 		resources :events
 	end
 	
-	resources :events
+	resources :events do
+		collection do
+			get 'landing'
+		end
+	end
 
-  root 'events#index'
+  root 'events#landing'
 end

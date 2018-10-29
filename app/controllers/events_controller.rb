@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
 
-	# should this be authenticate_user or authenticate_chef?
 	before_action :authenticate_chef!, :except => [ :show, :index ]
+
+	def landing
+		@events = Event.all
+	end
 
 	def index
 		if params.has_key?(:chef_id)
