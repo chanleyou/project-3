@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
 	# should this be authenticate_user or authenticate_chef?
 	before_action :authenticate_chef!, :except => [ :show, :index ]
-	
+
 	def index
 		if params.has_key?(:chef_id)
 			@events = Event.where(chef_id: params[:chef_id] )
@@ -21,18 +21,24 @@ class EventsController < ApplicationController
 	def edit
 		@event = Event.find(params[:id])
   end
-	
+
 	def create
-		@event = Event.new(event_params)
+    if params[:event][:photo_url]
+      uploaded_file = params[:event][:photo_url].path
+      cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+      params[:event][:photo_url] = cloudnary_file['public_id']
+    end
+
+    @event = Event.new(event_params)
 		@event.chef = current_chef
-		
+
 		@event.save
 		redirect_to @event
   end
-	
+
 	def update
 		@event = Event.find(params[:id])
-	
+
 		@event.update(event_params)
 		redirect_to @event
   end
@@ -43,9 +49,9 @@ class EventsController < ApplicationController
 
 		redirect_to entries_path
 	end
-	
+
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :date, :description, :chef_id)
+    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url)
   end
 end
