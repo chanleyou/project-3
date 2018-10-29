@@ -26,15 +26,8 @@
     Singapore <%= form.text_field :postcode, id: 'postcodeInput' %>
   </p>
 
-  <p>
-    <%= form.label :'latitude' %><br>
-    <%= form.text_field :latitude, id: 'latitudeHidden' %> (to be hidden)
-  </p>
-
-  <p>
-    <%= form.label :'longtitude' %><br>
-    <%= form.text_field :longtitude, id: 'longtitudeHidden' %> (to be hidden)
-  </p>
+  <%= form.hidden_field :lat, id: 'latitudeHidden' %>
+  <%= form.hidden_field :lng, id: 'longtitudeHidden' %>
 
   <p>
     <%= form.submit %>
@@ -44,7 +37,7 @@
 
 <script type="text/javascript">
 
-	console.log("Works.")
+	console.log("Googlemaps autocomplete..")
 	var addressInput = document.getElementById('addressInput');
 	var postcodeInput = document.getElementById('postcodeInput');
 	var latHide = document.getElementById('latitudeHidden');
@@ -57,21 +50,21 @@
 	function initAutocomplete() {
 		autocomplete = new google.maps.places.Autocomplete(addressInput, options);
 		autocomplete.addListener('place_changed', fillInAddress);
-	}
+	};
 
 	function fillInAddress() {
 		var place = autocomplete.getPlace();
-
 		for (var i = 0; i < place.address_components.length; i++) {
       for (var j = 0; j < place.address_components[i].types.length; j++) {
         if (place.address_components[i].types[j] == "postal_code") {
 		          postcodeInput.value = place.address_components[i].long_name;
-        }
-      }
-    }
+        };
+      };
+    };
+    addressInput.value = place.name;
 		latHide.value = place.geometry.location.lat();
 		longHide.value = place.geometry.location.lng();
-	}
+	};
 
 </script>
 
