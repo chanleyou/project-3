@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require nested_form_fields
+//= require flatpickr
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
