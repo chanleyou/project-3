@@ -12,20 +12,12 @@ display: inline-block;
 	text-align: center;
 }
 
+
 .containerForEvent {
-	width: 450px;
+	width: 600px;
 	height: 200px;
 	border-style: dotted;
 	margin-top: 55px;
-
-}
-
-.containerForMap {
-	width: 550px;
-	height: 500px;
-	border-style: dotted;
-	float: right;
-
 }
 
 .top-left {
@@ -40,6 +32,20 @@ color: white;
 position: absolute;
 top: 48px;
 left: 16px;
+}
+
+.navMap {
+width: 250px;
+height: 250px;
+border-style: dotted;
+}
+
+#navEvents {
+	float: right;
+}
+
+#cards {
+margin-right: 250px;
 }
 
 .bottom-right {
@@ -63,4 +69,6 @@ left: 16px;
 
 .container {
 	background-size: cover;
+	display: block;
 }
+
