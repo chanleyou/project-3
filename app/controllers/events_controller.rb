@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
 
-	# should this be authenticate_user or authenticate_chef?
 	before_action :authenticate_chef!, :except => [ :show, :index ]
+
+	def landing
+		@events = Event.all
+	end
 
 	def index
 		if params.has_key?(:chef_id)
@@ -52,6 +55,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url)
+    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url, :address, :postcode, :lat, :lng)
   end
 end
