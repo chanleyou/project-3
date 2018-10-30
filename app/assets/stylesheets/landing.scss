@@ -7,8 +7,25 @@ display: inline-block;
 .card:hover {
   opacity: 1;
 }
-.row {
+
+#allEventsRow {
 	text-align: center;
+}
+
+.containerForEvent {
+	width: 450px;
+	height: 200px;
+	border-style: dotted;
+	margin-top: 55px;
+
+}
+
+.containerForMap {
+	width: 550px;
+	height: 500px;
+	border-style: dotted;
+	float: right;
+
 }
 
 .top-left {
