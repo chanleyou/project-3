@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.destroy
 
-		redirect_to entries_path
+		redirect_to events_path
 	end
 
 	private

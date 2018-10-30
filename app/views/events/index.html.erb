@@ -1,22 +1,24 @@
-<%= @events.each do |event| %>
 <div class="container">
-
-	<div class="row">
-		<div class="col-12">
-			<h1 class="display-4 mt-2"><%= event.title %></h1>
-			<p class="my-0">Date: <%= event.date %></p>
-			<p class="mt-0 mb-3">Location: <%= event.date %></p>
-			<p><%= event.description %></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-12">
-			<div class="card bg-light p-3">
-				<p>By: <strong><%= link_to event.chef.name, chef_path(event.chef) %></strong></p>
-				<p><%= event.chef.description %></p>
+	<%= @events.each do |event| %>
+	
+		<div class="row">
+			<div class="col-12">
+				<h1 class="display-4 mt-2"><%= event.title %></h1>
+				<p class="my-0">Date: <%= event.date %></p>
+				<p class="mt-0 mb-3">Location: <%= event.date %></p>
+				<p><%= event.description %></p>
 			</div>
 		</div>
-	</div>
+	
+		<div class="row">
+			<div class="col-12">
+				<div class="card bg-light p-3">
+					<p>By: <strong><%= link_to event.chef.name, chef_path(event.chef) %></strong></p>
+					<p><%= event.chef.description %></p>
+				</div>
+			</div>
+		</div>
+
+
+	<% end %>
 </div>
-<% end %>
