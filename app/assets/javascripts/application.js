@@ -20,6 +20,8 @@
 //= require nested_form_fields
 //= require flatpickr
 
+//= stub events_new
+
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
