@@ -17,6 +17,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require nested_form_fields
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();

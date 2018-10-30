@@ -19,6 +19,8 @@ class EventsController < ApplicationController
   end
 
 	def new
+		@event = Event.new
+		1.times { @event.dishes.build }
   end
 
 	def edit
@@ -30,13 +32,19 @@ class EventsController < ApplicationController
       uploaded_file = params[:event][:photo_url].path
       cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
       params[:event][:photo_url] = cloudnary_file['public_id']
-    end
+		end
 
-    @event = Event.new(event_params)
+		@event = Event.create(event_params)
 		@event.chef = current_chef
-
-		@event.save
-		redirect_to @event
+		
+		if @event.save
+			redirect_to event_path(@event) # Only if you already have a events/show
+		else
+			render ‘new’
+		end
+		 
+		# @event.save
+		# redirect_to @event
   end
 
 	def update
@@ -55,6 +63,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url, :address, :postcode, :lat, :lng)
+    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :_destroy])
   end
 end

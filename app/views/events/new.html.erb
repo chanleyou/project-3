@@ -1,42 +1,52 @@
 <h1>Incomplete</h1>
 
-<h5>You'll need to provide the following information for your new event:</h3>
-<p>- Name, description, and an image... the larger the better!</p>
-<p>- A menu, with prices - don't worry, you can change all these later</p>
-<p>- The type of FRUCK you'll need</p>
-<p>- And lastly, your event location</p>
-
-<%= form_with scope: :event, url: events_path, local: true do |form| %>
+<%= form_for @event do |f| %>
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </p>
 
   <p>
-    <%= form.label :photo_url %><br>
-    <%= form.file_field :photo_url %>
+    <%= f.label :photo_url %><br>
+    <%= f.file_field :photo_url %>
   </p>
 
   <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
   </p>
 
   <p>
-    <%= form.label :'Street address' %><br>
-    <%= form.text_field :address, placeholder: '', id: 'addressInput' %>
+    <%= f.label :'Street address' %><br>
+    <%= f.text_field :address, placeholder: '', id: 'addressInput' %>
   </p>
 
   <p>
-    <%= form.label :'postcode' %><br>
-    Singapore <%= form.text_field :postcode, id: 'postcodeInput' %>
+    <%= f.label :'postcode' %><br>
+    Singapore <%= f.text_field :postcode, id: 'postcodeInput' %>
   </p>
 
-  <%= form.hidden_field :lat, id: 'latitudeHidden' %>
-  <%= form.hidden_field :lng, id: 'longtitudeHidden' %>
+  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
+	<%= f.hidden_field :lng, id: 'longtitudeHidden' %>
+	
+  Menu:
+	<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
+  <ul>
+    <%= f.nested_fields_for :dishes do |dishes_form| %>
+      <li>
+        <%= dishes_form.label :name %>
+        <%= dishes_form.text_field :name %>
+				<%= dishes_form.label :description %>
+				<%= dishes_form.text_field :description %>
+				<%= dishes_form.remove_nested_fields_link %>
+      </li>
+		<% end %>
+
+	</ul>
+	
 
   <p>
-    <%= form.submit %>
+    <%= f.submit "Create Event" %>
   </p>
 <% end %>
 <%= link_to 'Back', events_path %>
@@ -60,7 +70,7 @@
 	function initAutocomplete() {
 		autocomplete = new google.maps.places.Autocomplete(addressInput, options);
 
-		google.maps.event.addDomListener(addressInput, 'keydown', function(e) {	// disables 'Enter' key submitting form when suggestions are open
+		google.maps.event.addDomListener(addressInput, 'keydown', function(e) {	// disables 'Enter' key submitting f when suggestions are open
 		    if (e.keyCode == 13 && $('.pac-container:visible').length) {
 		        e.preventDefault();
 		    }
