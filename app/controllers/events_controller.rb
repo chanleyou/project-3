@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
 
-	# should this be authenticate_user or authenticate_chef?
-	before_action :authenticate_chef!, :except => [ :show, :index ]
+	before_action :authenticate_chef!, :except => [ :show, :index, :landing ]
+
+	def landing
+		@events = Event.all
+	end
 
 	def index
 		if params.has_key?(:chef_id)
@@ -47,7 +50,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.destroy
 
-		redirect_to entries_path
+		redirect_to events_path
 	end
 
 	private
