@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-	before_action :authenticate_chef!, :except => [ :show, :index ]
+	before_action :authenticate_chef!, :except => [ :show, :index, :landing ]
 
 	def landing
 		@events = Event.all
