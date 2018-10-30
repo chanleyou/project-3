@@ -1,0 +1,49 @@
+
+.card {
+opacity: 0.8;
+display: inline-block;
+}
+
+.card:hover {
+  opacity: 1;
+}
+.row {
+	text-align: center;
+}
+
+.top-left {
+color: white;
+position: absolute;
+top: 8px;
+left: 16px;
+}
+
+.a-bit-top-left {
+color: white;
+position: absolute;
+top: 48px;
+left: 16px;
+}
+
+.bottom-right {
+color: white;
+position: absolute;
+bottom: 8px;
+right: 16px;
+}
+
+.bottom-left {
+color: white;
+position: absolute;
+bottom: 8px;
+left: 16px;
+}
+
+.jumbotron {
+	background-color: white;
+	text-align: center;
+}
+
+.container {
+	background-size: cover;
+}
