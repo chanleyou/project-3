@@ -113,9 +113,13 @@ section .section-title {
     text-align: center;
     color: black;
     text-transform: uppercase;
+    width: 100%;
+    display: inline-block;
+
 }
 
 #footer {
+width: 100%;
 background: black !important;
 }
 
