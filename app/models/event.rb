@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
 	belongs_to :chef
-	has_many :dishes
+  belongs_to :truck
+	has_many :dishes, dependent: :destroy
 	accepts_nested_attributes_for :dishes, reject_if: lambda {|attributes| attributes['name'].blank?}, allow_destroy: true
 end

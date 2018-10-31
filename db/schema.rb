@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_071345) do
+ActiveRecord::Schema.define(version: 2018_10_30_193932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,14 @@ ActiveRecord::Schema.define(version: 2018_10_30_071345) do
     t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "course"
+    t.decimal "price", precision: 8, scale: 2
     t.index ["event_id"], name: "index_dishes_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "location"
-    t.datetime "date"
     t.text "description"
     t.bigint "chef_id"
     t.datetime "created_at", null: false
@@ -65,7 +66,18 @@ ActiveRecord::Schema.define(version: 2018_10_30_071345) do
     t.integer "postcode"
     t.decimal "lat", precision: 10, scale: 8
     t.decimal "lng", precision: 11, scale: 8
+    t.bigint "truck_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["chef_id"], name: "index_events_on_chef_id"
+    t.index ["truck_id"], name: "index_events_on_truck_id"
   end
 
+  create_table "trucks", force: :cascade do |t|
+    t.string "trucktype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "events", "trucks"
 end

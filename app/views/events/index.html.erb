@@ -1,50 +1,50 @@
 <div class="container">
-<div class="row-6">
-<div id="navEvents" class="col-3">
-<h2>Navigation Bar</h2>
-<ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">Search</a></li>
-  <div class="navMap">HERE GOES MAP</div>
-</ul>
-</div>
-</div>
-
-<div id="events" class="col">
-<% @events.each do |event| %>
-<div id="cards" class="col-6">
-<div class="containerForEvent">
-  <div class="row" style="height: 60px">
-    <div class="col">
-      EVENT NAME:
-    </div>
-    <div class="col">
-      <%= event.title %>
-    </div>
-  </div>
-  <div class="row" style="height: 60px">
-    <div class="col" >
-      DATE: <%= event.date %>
-    </div>
-    <div class="col">
-      LOCATION: link
-    </div>
-    <div class="col">
-      BY:<%= link_to event.chef.name, chef_path(event.chef) %>
-    </div>
-    </div>
-
-  <div class="row" style="height: 60px">
-    <div class="col">
-      DESCRIPTION:
-    </div>
-    <div class="col">
-      <%= event.description %>
-    </div>
-  </div>
-</div>
-</div>
-
-<% end %>
-</div>
+		<div class="row-6">
+				<div id="navEvents" class="col-3">
+						<h2>Navigation Bar</h2>
+						<ul>
+								<li><a href="#home">Home</a></li>
+								<li><a href="#news">Search</a></li>
+								<div class="navMap">HERE GOES MAP</div>
+						</ul>
+				</div>
+		</div>
+		<div id="events" class="col">
+				<% @events.each do |event| %>
+				<div id="cards" class="col-6">
+						<div class="containerForEvent">
+								<div class="row" style="height: 60px">
+										<div class="col">
+												EVENT NAME:
+										</div>
+										<div class="col">
+												<%= event.title %>
+										</div>
+								</div>
+								<div class="row" style="height: 60px">
+										<div class="col">
+												DATES:
+												<%= event.start_date %> to
+												<%= event.end_date %>
+										</div>
+										<div class="col">
+												LOCATION: link
+										</div>
+										<div class="col">
+												BY:
+												<%= link_to event.chef.name, chef_path(event.chef) %>
+										</div>
+								</div>
+								<div class="row" style="height: 60px">
+										<div class="col">
+												DESCRIPTION:
+										</div>
+										<div class="col">
+												<%= event.description %>
+										</div>
+								</div>
+						</div>
+				</div>
+				<% end %>
+		</div>
 </div>

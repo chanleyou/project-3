@@ -34,17 +34,14 @@ class EventsController < ApplicationController
       params[:event][:photo_url] = cloudnary_file['public_id']
 		end
 
-		@event = Event.create(event_params)
+		@event = Event.new(event_params)
 		@event.chef = current_chef
-		
+
 		if @event.save
-			redirect_to event_path(@event) # Only if you already have a events/show
+			redirect_to @event
 		else
-			render ‘new’
+			render 'new'
 		end
-		 
-		# @event.save
-		# redirect_to @event
   end
 
 	def update
@@ -63,6 +60,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :date, :description, :chef_id, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :_destroy])
+    params.require(:event).permit(:title, :location, :start_date, :end_date, :description, :chef_id, :truck_id, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :_destroy])
   end
 end
