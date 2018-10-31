@@ -36,13 +36,13 @@ class EventsController < ApplicationController
 
 		@event = Event.create(event_params)
 		@event.chef = current_chef
-		
+
 		if @event.save
 			redirect_to event_path(@event) # Only if you already have a events/show
 		else
-			render ‘new’
+			render 'new'
 		end
-		 
+
 		# @event.save
 		# redirect_to @event
   end

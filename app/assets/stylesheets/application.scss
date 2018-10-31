@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  *= require flatpickr
+ *
+ *= stub bootstrap3.min
+ *= stub paper-bootstrap-wizard
+ *= stub themify-icons
  */
 
 @import "bootstrap";

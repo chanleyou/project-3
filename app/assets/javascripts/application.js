@@ -21,6 +21,9 @@
 //= require flatpickr
 
 //= stub events_new
+//= stub jquery.bootstrap.wizard
+//= stub jquery.validate.min
+//= stub paper-bootstrap-wizard
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();

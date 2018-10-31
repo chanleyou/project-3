@@ -12,4 +12,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
 Rails.application.config.assets.precompile += %w( events_new.js )
+Rails.application.config.assets.precompile += %w( jquery.bootstrap.wizard.js )
+Rails.application.config.assets.precompile += %w( jquery.validate.min.js )
+Rails.application.config.assets.precompile += %w( paper-bootstrap-wizard.js )
+
+Rails.application.config.assets.precompile += %w( bootstrap3.min.scss )
+Rails.application.config.assets.precompile += %w( paper-bootstrap-wizard.scss )
+Rails.application.config.assets.precompile += %w( themify-icons.css )
