@@ -13,14 +13,17 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
 	<div class="container">
-  <a class="navbar-brand" href="/"><strong>Fruck with Friends</strong></a>
+  <a class="navbar-brand" href="/">Fruck with Friends</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<button type="button" class="btn btn-link nav-link border-0" data-toggle="modal" data-target="#faqModal">FAQ</button>
+			</li>
+			<li class="nav-item">
 			<%= link_to 'Events', events_path, class: 'nav-link' %>
       </li>
       <li class="nav-item dropdown">
@@ -49,6 +52,93 @@
 
   <body>
     <%= yield %>
-  </body>
+	</body>
+	
+	<div class="modal fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">FAQ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				
+			<div class="accordion" id="accordionExample">
+				<div class="card border-0">
+					<div class="card-header" id="headingOne">
+						<h5 class="mb-0">
+							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								What is this app all about?
+							</button>
+						</h5>
+					</div>
+			
+					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						<div class="card-body">
+						<p>Our app is for both food lovers and restraunts/cafes who like to share the dining experience in different locations:</p>
+			  <ul>
+				<li>Shefs can rent a truck, and dislocate it in any part of Singapore, catching new customers all over the cities</li>
+				<li>Customers can enjoy their favorite food brands in locations which are closer to them that usual cafes and restraunts</li>
+				<li>Track the Truck! Location changing almost everyday</li>
+				<li>Identify the best available food by tracking likes and views!</li>
+			  </ul>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0">
+					<div class="card-header" id="headingTwo">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Ok, how it works for chefs?
+							</button>
+						</h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						<div class="card-body">
+						<p>Chefs need to sign-in with a special form. After that, they are able to rent our track and create their unique event with menu, location, time etc.</p>
+						</div>
+					</div>
+				</div>
+				<div class="card border-0">
+					<div class="card-header" id="headingThree">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							And whats for regular users?
+							</button>
+						</h5>
+					</div>
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						<div class="card-body">
+						<p>Track your favorite food brands across the Singapore, travel to the nearest one, share the unique foodtruck experinece with your stupid friends who also has nothing to do how about you go work?</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card border-0">
+					<div class="card-header" id="headingFour">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							Can I preorder food?
+							</button>
+						</h5>
+					</div>
+					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+						<div class="card-body">
+						<p>Absolutely, preorder quickly</p>	
+						</div>
+					</div>
+				</div>
+			</div>
+
+      <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+			</div>
+      </div>
+  </div>
+</div>
 
 </html>

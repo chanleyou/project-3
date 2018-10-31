@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
 
-	before_action :authenticate_chef!, :except => [ :show, :index, :landing ]
+	before_action :authenticate_chef!, :except => [ :show, :index, :landing, :faq ]
 
 	def landing
-		@events = Event.all
+		@popular = Event.order(views: :desc).take(3)
+
+		#logic for this isn't done yet, needs to discard events that are already past the end date
+		@upcoming = Event.order(:end_date).take(3)
 	end
 
 	def index
@@ -16,6 +19,9 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+
+		@event.views += 1
+		@event.save
   end
 
 	def new
@@ -60,6 +66,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :start_date, :end_date, :description, :chef_id, :truck_id, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :_destroy])
+    params.require(:event).permit(:title, :location, :start_date, :end_date, :description, :chef_id, :truck_id, :views, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :_destroy])
   end
 end

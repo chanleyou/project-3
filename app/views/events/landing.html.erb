@@ -21,32 +21,58 @@
 
 <div class="container">
 
-	<div class="row justify-content-center my-5">
+	<div class="row my-5 justify-content-center">
 
-	<div class="col-11 col-md-12">
+	<div class="col-11 col-md-8 col-lg-12">
 		<h3 class="mt-2 mb-0 mx-1">Popular</h3>
 		<p class="lead mx-1">See what people like in your area:</p>
 	</div>
 
-		<% @events.each do |event| %>
-			<div class="col-11 col-md-4">
+		<% @popular.each do |event| %>
+			<div class="col-11 col-md-8 col-lg-4">
 
-				<div class="card shadow-sm mb-3">
+				<div class="card mb-3 bg-light shadow-sm p-2">
 					<div class="card-img-top">
 						<a href='<%= event_path(event) %>'>
 							<%= cl_image_tag(event.photo_url, style: 'width: 100%; height: 13rem; object-fit: cover; object-position: center; background-color: black') %>
 						</a>
-						<h4 class="text-light" style="position: absolute; left: 0.5rem; top: 0.25rem;"><%= event.title %></h4>
-						<p class="text-light" style="position: absolute; right: 0.5rem; top: 0.4rem;">2<img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
+						<h4 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h4>
+						<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 					</div>
-					<div class="card-body py-1 px-2">
-						<p class="card-text small">Dates: <%= event.start_date %> to <%= event.end_date %><br>
-						<%= event.address %></p>
+					<div class="card-body py-1 px-0">
+						<p class="card-text small"><%= event.start_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %> to <%= event.end_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %><br>
+						<%= event.address %> <%= event.postcode %></p>
 					</div>
 				</div>
 
 			</div>
 		<% end %>
+
+		<div class="col-11 col-md-8 col-lg-12">
+		<h3 class="mt-4 mb-0 mx-1">Upcoming</h3>
+		<p class="lead mx-1">Coming soon to a location near you:</p>
+	</div>
+
+	<% @upcoming.each do |event| %>
+		<div class="col-11 col-md-8 col-lg-4">
+
+		<div class="card mb-3 bg-light shadow-sm p-2">
+		<div class="card-img-top">
+			<a href='<%= event_path(event) %>'>
+				<%= cl_image_tag(event.photo_url, style: 'width: 100%; height: 13rem; object-fit: cover; object-position: center; background-color: black') %>
+			</a>
+			<h4 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h4>
+			<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
+		</div>
+		<div class="card-body py-1 px-0">
+			<p class="card-text small"><%= event.start_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %> to <%= event.end_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %><br>
+			<%= event.address %> <%= event.postcode %></p>
+		</div>
+	</div>
+
+		</div>
+	<% end %>
+
 
 	</div>
 
