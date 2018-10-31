@@ -215,6 +215,7 @@
 
   <%= f.hidden_field :lat, id: 'latitudeHidden' %>
 	<%= f.hidden_field :lng, id: 'longitudeHidden' %>
+	<%= f.hidden_field :truck_id, value: 1 %>
 
   Menu:
 	<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
@@ -225,12 +226,21 @@
         <%= dishes_form.text_field :name %>
 				<%= dishes_form.label :description %>
 				<%= dishes_form.text_field :description %>
+				<%= dishes_form.label :price %>
+				<%= dishes_form.text_field :price %>
 				<%= dishes_form.remove_nested_fields_link %>
       </li>
 		<% end %>
-
 	</ul>
 
+	<p>
+		<%= f.label :"Start date" %><br>
+		<%= f.datetime_select :start_date %>
+	</p>
+	<p>
+		<%= f.label :"End date" %><br>
+		<%= f.datetime_select :end_date %>
+	</p>
 
   <p>
     <%= f.submit "Create Event" %>
