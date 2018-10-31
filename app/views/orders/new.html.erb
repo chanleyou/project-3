@@ -1,0 +1,31 @@
+<h1>New Order Form</h1>
+
+<%= form_for @order do |form| %>
+
+	<%= form.hidden_field :event_id, value:@event.id %>
+
+	<p>
+		<%= form.label :time %><br>
+		<%= form.datetime_select :time %>
+	</p>	
+
+	<%= form.add_nested_fields_link :orderitems do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
+		
+		<br><br>
+
+	<%= form.nested_fields_for :orderitems do |orderitems_form| %>
+		
+		<label>Item<label>
+		<%= orderitems_form.collection_select :dish_id, @dishes, :id, :name %>
+
+		<p>
+			<%= orderitems_form.label :quantity %><br>
+			<%= orderitems_form.number_field :quantity %>
+			<%= orderitems_form.remove_nested_fields_link %>
+		</p>
+
+	<% end %>
+
+	<%= form.submit "Order", class: "btn btn-primary" %>
+
+<% end %>

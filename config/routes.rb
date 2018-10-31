@@ -11,10 +11,15 @@ Rails.application.routes.draw do
 
 
 	resources :events do
+		resources :orders
+
 		collection do
 			get 'landing'
 		end
+
 	end
+
+	resources :orders
 
   root 'events#landing'
 

@@ -1,0 +1,14 @@
+<p>Event: <%= @order.event.title %><br>
+Order ID: <%= @order.id %><br>
+Customer: <%= @order.customer.username %><br>
+Time: <%= @order.time %><br>
+Total Price: $<%= @price %></p>
+
+<p><strong>Order</strong></p>
+
+<ul>
+<% @order.orderitems.each do |orderitem| %>
+	<li><%=  orderitem.dish.name %> x<%= orderitem.quantity %> @ $<%= orderitem.dish.price %> each</li>
+
+<% end %>
+</ul>
