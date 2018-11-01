@@ -8,6 +8,26 @@
 			<p class="my-0"><%= @event.start_date.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %> to <%= @event.end_date.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
 			<p class="mt-0 mb-3">Location: <%= @event.address %> <%= @event.postcode %></p>
 			<p><%= @event.description %></p>
+			<table class="table">
+			<thead class="thead-light">
+			<tr>
+				<th>Menu</th>
+				<th>Description</th>
+				<th>Course</th>
+				<th>Price</th>
+			</tr>
+			</thead>
+				<tbody>
+					<% @event.dishes.each do |dish| %>
+						<tr>
+						<td><%= dish.name %></td>
+						<td><%= dish.description %></td>
+						<td><%= dish.course %></td>
+						<td>$<%= dish.price %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
 
