@@ -1,5 +1,5 @@
 
-console.log("New event form Googlemaps Autocomplete script running...")
+console.log("New event form custom scripts running")
 var addressInput = document.getElementById('addressInput');
 var postcodeInput = document.getElementById('postcodeInput');
 var latHide = document.getElementById('latitudeHidden');
@@ -34,3 +34,44 @@ addressInput.value = place.name;
     latHide.value = place.geometry.location.lat();
     longHide.value = place.geometry.location.lng();
 };
+
+
+
+$('#truckModal1').on('show.bs.modal', function() {
+
+    flatpickr('#flatpickr-input', {
+        // plugins: [new rangePlugin({ input: "#flatpickr-input2"})],
+        static: true,
+        inline: true,
+        showMonths: 2,
+        mode: "range",
+        minDate: "today",
+        maxDate: new Date().fp_incr(100),
+        dateFormat: "l, J M y",
+        // disable: disabledDates,
+        onValueUpdate: function(selectedDates) {
+
+        //     rentalDuration = parseInt( (selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24 ) ) + 1;
+
+        //     if (rentalDuration > 0) {
+        //         rentalForm.style.display = "block";
+
+        //         fieldRentalDuration.textContent = `$${rentalRate} x ${rentalDuration} day(s)`;
+        //         fieldRentalSubTotal.textContent = `$${(rentalRate * rentalDuration).toFixed(2)}`;
+        //         fieldRentalFee.textContent = `$${(0.1 * rentalRate * rentalDuration).toFixed(2)}`;
+        //         fieldRentalGrandTotal.textContent = `S$${(1.1 * rentalRate * rentalDuration).toFixed(2)}`;
+        //         confirmationModalGrandTotal.textContent = `S$${(1.1 * rentalRate * rentalDuration).toFixed(2)}`;
+        //     };
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+

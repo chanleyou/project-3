@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 		else
 			@orders = []
 		end
-		
+
 		@orders.sort_by {|order| order.time}
 	end
 
@@ -77,6 +77,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :location, :start_date, :end_date, :description, :chef_id, :truck_id, :views, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :_destroy])
+    params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :chef_id, :truck_id, :views, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :_destroy])
   end
 end
