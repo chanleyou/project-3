@@ -1,10 +1,20 @@
 <h1>Chefs</h1>
 
-<br><%= link_to 'Events', events_path %></p>
-
 <% @chefs.each do |chef| %>
 
-<p><%= chef.name %><br>
-<%= chef.description %></p>
+	<div class="card mb-3 shadow-sm p-2">
+	<div class="row margin-top-20 margin-bottom-20">
+						<div class="col col-2">
+							<%= image_tag( "default_profile.jpg", size: "150x150", :alt => "rss feed") -%>
+						</div>
+						<div class="col col-10">
+							  <div class="card-body">
+							    <h5 class="card-title">NAME: <%= chef.name %></h5>
+							    <h5 class="card-title">DESCRIPTION: <%= chef.description %></h5>
+							    <p> REGISTERED SINCE: <%= chef.created_at %></p>
+							  </div>
+						</div>
+	</div>
+	</div>
 
 <% end %>

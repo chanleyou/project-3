@@ -19,8 +19,13 @@
 
 @import "bootstrap";
 
-body{
+.block {
+	display: inline-block;
 }
+
+.margin-top-20 { margin-top: 2.0em }
+.margin-bottom-20 { margin-bottom: 2.0em }
+
 // To use one of the themes, add:
 
 // *= require flatpickr/material_red
