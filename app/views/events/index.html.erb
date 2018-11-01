@@ -1,50 +1,44 @@
-<div class="container">
-		<div class="row-6">
-				<div id="navEvents" class="col-3">
-						<h2>Navigation Bar</h2>
-						<ul>
-								<li><a href="#home">Home</a></li>
-								<li><a href="#news">Search</a></li>
-								<div class="navMap">HERE GOES MAP</div>
-						</ul>
-				</div>
+<div class="container-fluid" style="width: 95%;">
+
+	<div class="row">
+
+		<div class="col-12 my-2"></div>
+
+		<div class="col-12 col-md-3">
+			<h4>Search, filters, stuff go here</h4>
 		</div>
-		<div id="events" class="col">
+
+		<div class="col-12 col-md-9">
+
+		
+		<div class="row">
+		
+			<div class="col-10 col-md-12"><h1 class="display-4 mb-4 ml-1">Events</h1></div>
+
 				<% @events.each do |event| %>
-				<div id="cards" class="col-6">
-						<div class="containerForEvent">
-								<div class="row" style="height: 60px">
-										<div class="col">
-												EVENT NAME:
-										</div>
-										<div class="col">
-												<%= event.title %>
-										</div>
-								</div>
-								<div class="row" style="height: 60px">
-										<div class="col">
-												DATES:
-												<%= event.start_date %> to
-												<%= event.end_date %>
-										</div>
-										<div class="col">
-												LOCATION: link
-										</div>
-										<div class="col">
-												BY:
-												<%= link_to event.chef.name, chef_path(event.chef) %>
-										</div>
-								</div>
-								<div class="row" style="height: 60px">
-										<div class="col">
-												DESCRIPTION:
-										</div>
-										<div class="col">
-												<%= event.description %>
-										</div>
-								</div>
+					<div class="col-10 col-md-3">
+		
+						<div class="card mb-3 shadow-sm p-2">
+							<div class="card-img-top">
+								<a href='<%= event_path(event) %>'>
+									<%= cl_image_tag(event.photo_url, style: 'width: 100%; height: 9rem; object-fit: cover; object-position: center; background-color: black') %>
+								</a>
+								<h5 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h5>
+								<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
+							</div>
+							<div class="card-body py-1 px-0">
+								<p class="card-text small"><%= event.start_date.strftime("%H:%M%P %a %-d/%-m/%y") %> to <%= event.end_date.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
+								<%= event.address %> <%= event.postcode %></p>
+							</div>
 						</div>
-				</div>
+		
+					</div>
 				<% end %>
+
+			</div>
+		
 		</div>
+
+	</div>
+
 </div>

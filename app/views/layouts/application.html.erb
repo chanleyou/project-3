@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project3</title>
+    <title>Fruck with Friends</title>
     <%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
 
@@ -25,6 +25,9 @@
 			</li>
 			<li class="nav-item">
 			<%= link_to 'Events', events_path, class: 'nav-link' %>
+			</li>
+			<li class="nav-item">
+			<%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,6 +48,9 @@
 				<% else %>
 				<%= link_to 'User', new_customer_session_url, class: 'dropdown-item' %>
 				<%= link_to 'Chef', new_chef_session_url, class: 'dropdown-item' %>
+				<div class="dropdown-divider"></div>
+				<%= link_to 'Register (User)', new_customer_registration_path, class: 'dropdown-item' %>
+				<%= link_to 'Register (Chef)', new_chef_registration_path, class: 'dropdown-item' %>				
 				<% end %>
         </div>
       </li>
