@@ -21,10 +21,13 @@
 //= require flatpickr
 
 //= stub events_new
-//= stub jquery.bootstrap.wizard
-//= stub jquery.validate.min
-//= stub paper-bootstrap-wizard
+//= stub wizform.js
+
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
+});
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip()
 });
