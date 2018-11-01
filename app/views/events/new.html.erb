@@ -165,7 +165,7 @@
 						<div class="card-deck">
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal">
+								<a href="" id="modal-truck-basic" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_basic.jpg' %> alt="Basic truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Basic truck</h5>
@@ -175,7 +175,7 @@
 							</div>
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal">
+								<a href="" id="modal-truck-kitchen" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_kitchen.jpg' %> alt="Kitchen truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Kitchen truck</h5>
@@ -185,7 +185,7 @@
 							</div>
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal">
+								<a href="" id="modal-truck-freezer" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_freezer.jpg' %> alt="Freezer truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Freezer truck</h5>
@@ -196,14 +196,8 @@
 
 						</div>
 
-	          <p>
-							<%= f.label :"Start date" %><br>
-							<%= f.date_select :start_date, :order => [:day, :month, :year] %>
-						</p>
-						<p>
-							<%= f.label :"End date" %><br>
-							<%= f.date_select :end_date, :order => [:day, :month, :year] %>
-						</p>
+	          <p id="eventStartDateShow"></p>
+						<p id="eventEndDateShow"></p>
 	          <p>
 							<%= f.label :"Start time" %><br>
 							<%= f.time_select :start_time, minute_step: 15, ampm: true %>
@@ -236,10 +230,12 @@
 	        <button type="button" class="button next">Next</button>
 	      </div>
 
+		  <%= f.hidden_field :start_date, id: 'eventStartDateHidden' %>
+		  <%= f.hidden_field :end_date, id: 'eventEndDateHidden' %>
 		  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
 			<%= f.hidden_field :lng, id: 'longitudeHidden' %>
 			<%= f.hidden_field :views, value: 0 %>
-			<%= f.hidden_field :truck_id, value: 1 %>
+			<%= f.hidden_field :truck_id, value: nil %>
 			<% end %>
 
     </div>

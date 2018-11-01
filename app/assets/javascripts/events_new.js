@@ -1,5 +1,4 @@
 console.log("New event form custom scripts running");
-console.log(gon.something);
 
 var addressInput = document.getElementById('addressInput');
 var postcodeInput = document.getElementById('postcodeInput');
@@ -37,12 +36,61 @@ addressInput.value = place.name;
 };
 
 
+
+
 var modalTitle = document.querySelector("#truckModal .modal-title");
+var truckID = document.querySelector("#event_truck_id");
+var eventStartDateShow = document.querySelector("#eventStartDateShow");
+var eventEndDateShow = document.querySelector("#eventEndDateShow");
+var eventStartDateHidden = document.querySelector("#eventStartDateHidden");
+var eventEndDateHidden = document.querySelector("#eventEndDateHidden");
+
+var disabledDates
+var rentalDuration
+var basicDates = [];
+var kitchenDates = [];
+var freezerDates = [];
+
+for (i = 0; i < gon.eventsBasicTruck.length; i++) {
+
+    basicDates.push({
+
+        from: `${gon.eventsBasicTruck[i].start_date}`,
+        to: `${gon.eventsBasicTruck[i].end_date}`
+    });
+};
+
+for (i = 0; i < gon.eventsKitchenTruck.length; i++) {
+
+    kitchenDates.push({
+
+        from: `${gon.eventsKitchenTruck[i].start_date}`,
+        to: `${gon.eventsKitchenTruck[i].end_date}`
+    });
+};
+
+for (i = 0; i < gon.eventsFreezerTruck.length; i++) {
+
+    freezerDates.push({
+
+        from: `${gon.eventsFreezerTruck[i].start_date}`,
+        to: `${gon.eventsFreezerTruck[i].end_date}`
+    });
+};
 
 
+$('#truckModal').on('show.bs.modal', function(e) {
 
-
-$('#truckModal').on('show.bs.modal', function() {
+    if ($(e.relatedTarget)[0].id === "modal-truck-basic") {
+        disabledDates = basicDates;
+        truckID.value = 1 // gon.eventsBasicTruck[0].truck_id;
+    } else if ($(e.relatedTarget)[0].id === "modal-truck-kitchen") {
+        disabledDates = kitchenDates;
+        truckID.value = 4 // gon.eventsKitchenTruck[0].truck_id;
+    } else if ($(e.relatedTarget)[0].id === "modal-truck-freezer") {
+        disabledDates = freezerDates;
+        truckID.value = 7 // gon.eventsFreezerTruck[0].truck_id;
+    };
 
     flatpickr('#flatpickr-input', {
         // plugins: [new rangePlugin({ input: "#flatpickr-input2"})],
@@ -51,13 +99,19 @@ $('#truckModal').on('show.bs.modal', function() {
         showMonths: 2,
         mode: "range",
         minDate: "today",
-        maxDate: new Date().fp_incr(100),
-        dateFormat: "l, J M y",
-        // disable: disabledDates,
+        maxDate: new Date().fp_incr(700),
+        dateFormat: "Y-m-d",
+        disable: disabledDates,
         onValueUpdate: function(selectedDates) {
 
-        //     rentalDuration = parseInt( (selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24 ) ) + 1;
+            rentalDuration = parseInt( (selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24 ) ) + 1;
 
+            if (rentalDuration > 0) {
+                eventStartDateHidden.value = selectedDates[0];
+                eventEndDateHidden.value = selectedDates[1];
+                eventStartDateShow.innerHTML = flatpickr.formatDate(selectedDates[0], "l, J M, Y");
+                eventEndDateShow.innerHTML = flatpickr.formatDate(selectedDates[1], "l, J M, Y");
+            };
         //     if (rentalDuration > 0) {
         //         rentalForm.style.display = "block";
 

@@ -40,7 +40,9 @@ class EventsController < ApplicationController
 		@event = Event.new
 		1.times { @event.dishes.build }
 
-    gon.something = "hello"
+    gon.eventsBasicTruck = Event.where(truck_id: Truck.where(trucktype: "basic")[0].id)
+    gon.eventsKitchenTruck = Event.where(truck_id: Truck.where(trucktype: "kitchen")[0].id)
+    gon.eventsFreezerTruck = Event.where(truck_id: Truck.where(trucktype: "freezer")[0].id)
   end
 
 	def edit
