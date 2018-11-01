@@ -163,22 +163,22 @@
 	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
 
 						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on top">
-							<img src=<%= image_url 'truck_basic.jpg' %> style="width: 200px">
+							<img src=<%= image_url 'truck_basic.jpg' %>>
 						</button>
 						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on right">
-						  Tooltip on right
+							<img src=<%= image_url 'truck_kitchen.jpg' %>>
 						</button>
 						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="right" title="Tooltip on bottom">
-						  Tooltip on bottom
+							<img src=<%= image_url 'truck_freezer.jpg' %>>
 						</button>
 
 	          <p>
 							<%= f.label :"Start date" %><br>
-							<%= f.date_select :start_date %>
+							<%= f.date_select :start_date, :order => [:day, :month, :year] %>
 						</p>
 						<p>
 							<%= f.label :"End date" %><br>
-							<%= f.date_select :end_date %>
+							<%= f.date_select :end_date, :order => [:day, :month, :year] %>
 						</p>
 	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
 	        </div>

@@ -20,7 +20,7 @@ var _createClass = function () {function defineProperties(target, props) {for (v
 
     {
       this.steps[this.currentStep].classList.add('-completed');
-      setTimeout(function() {document.getElementById("new_event").submit();}, 2000); // Form submission
+      setTimeout(function() {document.getElementById("new_event").submit();}, 2500); // Form submission
     } }, { key: 'handleStepsClasses', value: function handleStepsClasses(
 
     movement) {

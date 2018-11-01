@@ -1,5 +1,11 @@
 .truck_btn {
+	width: 30%;
+	margin: 1%;
 	padding: 0;
+}
+
+.truck_btn img {
+	width: 100%;
 }
 
 
