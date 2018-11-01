@@ -26,6 +26,9 @@
 			<li class="nav-item">
 			<%= link_to 'Events', events_path, class: 'nav-link' %>
       </li>
+      <li class="nav-item">
+			<%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<% if chef_signed_in? %><%= current_chef.username %><% elsif customer_signed_in? %><%= current_customer.username %><% else %>Login<% end %>
