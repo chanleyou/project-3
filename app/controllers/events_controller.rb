@@ -22,7 +22,18 @@ class EventsController < ApplicationController
 
 		@event.views += 1
 		@event.save
-  end
+
+		# lets event chef & customers see all their orders for this event
+		if (current_chef == @event.chef)
+			@orders = @event.orders
+		elsif (current_customer)
+			@orders = current_customer.orders & @event.orders # & is array intersection
+		else
+			@orders = []
+		end
+		
+		@orders.sort_by {|order| order.time}
+	end
 
 	def new
 		@event = Event.new

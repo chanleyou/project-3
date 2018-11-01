@@ -32,14 +32,16 @@
         </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				<% if chef_signed_in? %>
+				<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
 				<%= link_to 'New Event', new_event_path, class: 'dropdown-item' %>
 				<%= link_to 'Edit Profile', edit_chef_registration_url, class: 'dropdown-item' %>
 				<div class="dropdown-divider"></div>
 				<%= link_to 'Log Out', destroy_chef_session_url, method: :delete, class: 'dropdown-item' %>
 				<% elsif customer_signed_in? %>
+				<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
 				<%= link_to 'Edit Account', edit_customer_registration_url, class: 'dropdown-item' %>
 				<div class="dropdown-divider"></div>
-				<%= link_to 'Log Out', destroy_chef_session_url, method: :delete, class: 'dropdown-item' %>
+				<%= link_to 'Log Out', destroy_customer_session_url, method: :delete, class: 'dropdown-item' %>
 				<% else %>
 				<%= link_to 'User', new_customer_session_url, class: 'dropdown-item' %>
 				<%= link_to 'Chef', new_chef_session_url, class: 'dropdown-item' %>
@@ -165,8 +167,6 @@
       </div>
   </div>
 </div>
-
-
 
 
 
