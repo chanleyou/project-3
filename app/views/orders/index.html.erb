@@ -1,0 +1,9 @@
+<h1>Order Index</h1>
+
+<% @orders.each do |order| %>
+	
+	<p><a href='<%= event_path(order.event) %>'>Order <%= order.id %></a><br>
+	<%= order.event.title %><br>
+	<%= order.time.localtime %></p>
+
+<% end %>
