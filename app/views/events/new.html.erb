@@ -156,21 +156,45 @@
 					<!-- Panel 3 -->
 	        <div class="panel">
 	          <header class="panel__header">
-	            <h2 class="panel__title">Choose your truck & event dates</h2>
+	            <h2 class="panel__title">Truck & event dates</h2>
 	            <p class="panel__subheading">We have 3 types of foodtrucks here at [FWF] - hover over each to find out more.</p>
 	          </header>
 
 	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
 
-						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on top">
-							<img src=<%= image_url 'truck_basic.jpg' %>>
-						</button>
-						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on right">
-							<img src=<%= image_url 'truck_kitchen.jpg' %>>
-						</button>
-						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="right" title="Tooltip on bottom">
-							<img src=<%= image_url 'truck_freezer.jpg' %>>
-						</button>
+						<div class="card-deck">
+
+							<div class="card">
+								<a href="" data-toggle="modal" data-target="#truckModal1">
+								  <img class="card-img-top" src=<%= image_url 'truck_basic.jpg' %> alt="Basic truck">
+								  <div class="card-body">
+								    <h5 class="card-title">Basic truck</h5>
+								    <p class="card-text">S$200/day</p>
+								  </div>
+								</a>
+							</div>
+
+							<div class="card">
+								<a href="" data-toggle="modal" data-target="#truckModal2">
+								  <img class="card-img-top" src=<%= image_url 'truck_kitchen.jpg' %> alt="Kitchen truck">
+								  <div class="card-body">
+								    <h5 class="card-title">Kitchen truck</h5>
+								    <p class="card-text">S$500/day</p>
+								  </div>
+								</a>
+							</div>
+
+							<div class="card">
+								<a href="" data-toggle="modal" data-target="#truckModal3">
+								  <img class="card-img-top" src=<%= image_url 'truck_freezer.jpg' %> alt="Freezer truck">
+								  <div class="card-body">
+								    <h5 class="card-title">Freezer truck</h5>
+								    <p class="card-text">S$250/day</p>
+								  </div>
+								</a>
+							</div>
+
+						</div>
 
 	          <p>
 							<%= f.label :"Start date" %><br>
@@ -180,7 +204,15 @@
 							<%= f.label :"End date" %><br>
 							<%= f.date_select :end_date, :order => [:day, :month, :year] %>
 						</p>
-	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+	          <p>
+							<%= f.label :"Start time" %><br>
+							<%= f.time_select :start_time, minute_step: 15, ampm: true %>
+						</p>
+						<p>
+							<%= f.label :"End time" %><br>
+							<%= f.time_select :end_time, minute_step: 15, ampm: true %>
+						</p>
+						<p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
 	        </div>
 
 					<!-- Panel 4 -->
@@ -215,14 +247,39 @@
     <h1 class="wizard__congrats-message">
       Well done, you're all set!
     </h1>
+
   </div>
 </div>
 
 
+<!-- Truck 1 modal -->
+<div class="modal fade" id="truckModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Basic truck</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+        	[Descriptions of truck, reasons to pick this]
+      	</div>
+				<div>
+					<input type="text" id="flatpickr-input">
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%= link_to 'Back', events_path %>
-
 
 
 <%= javascript_include_tag "events_new" %>

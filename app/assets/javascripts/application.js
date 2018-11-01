@@ -18,7 +18,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require nested_form_fields
-//= require flatpickr
 
 //= stub events_new
 //= stub wizform.js
