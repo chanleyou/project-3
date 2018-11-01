@@ -1,4 +1,5 @@
-<h1>New Order Form</h1>
+<div class="container">
+<h1 class="my-4">Preorder for <%= @event.title %> </h1>
 
 <%= form_for @order do |form| %>
 
@@ -6,7 +7,7 @@
 
 	<p>
 		<%= form.label :time %><br>
-		<%= form.datetime_select :time %>
+		<%= form.datetime_select :time, minute_step: 10, start_hour: @event.start_time.hour, end_hour: @event.end_time.hour, start_year: @event.start_date.year %>
 	</p>	
 
 	<%= form.add_nested_fields_link :orderitems do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
@@ -29,3 +30,4 @@
 	<%= form.submit "Order", class: "btn btn-primary" %>
 
 <% end %>
+</div>

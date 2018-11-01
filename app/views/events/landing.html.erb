@@ -40,7 +40,7 @@
 						<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 					</div>
 					<div class="card-body py-1 px-0">
-						<p class="card-text small"><%= event.start_date.strftime("%H:%M%P %a %-d/%-m/%y") %> to <%= event.end_date.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
+						<p class="card-text small"><%= event.start_date.strftime("%a %-d/%-m/%y") %> to <%= event.end_date.strftime("%a %-d/%-m/%y") %><br>
 						<%= event.address %> <%= event.postcode %></p>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 			<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 		</div>
 		<div class="card-body py-1 px-0">
-			<p class="card-text small"><%= event.start_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %> to <%= event.end_date.localtime.strftime("%H:%M%P %a %-d/%-m/%C") %><br>
+			<p class="card-text small"><%= event.start_date.strftime("%a %-d/%-m/%y") %> to <%= event.end_date.strftime("%a %-d/%-m/%y") %><br>
 			<%= event.address %> <%= event.postcode %></p>
 		</div>
 	</div>

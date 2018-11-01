@@ -5,8 +5,9 @@ class EventsController < ApplicationController
 	def landing
 		@popular = Event.order(views: :desc).take(3)
 
-		#logic for this isn't done yet, needs to discard events that are already past the end date
-		@upcoming = Event.order(:end_date).take(3)
+		@upcoming = Event.order(:end_date)
+		
+		@upcoming = @upcoming.select { |event| (event.end_date - Time.now) > 0 }.take(3)
 	end
 
 	def index
@@ -31,8 +32,8 @@ class EventsController < ApplicationController
 		else
 			@orders = []
 		end
-
-		@orders.sort_by {|order| order.time}
+		
+		@orders.sort_by {|order| order.time }
 	end
 
 	def new
@@ -77,6 +78,6 @@ class EventsController < ApplicationController
 
 	private
   def event_params
-    params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :chef_id, :truck_id, :views, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :_destroy])
+    params.require(:event).permit(:title, :start_date, :end_date, :start_time, :end_time, :description, :chef_id, :truck_id, :views, :photo_url, :address, :postcode, :lat, :lng, dishes_attributes: [:id, :name, :description, :price, :course, :_destroy])
   end
 end
