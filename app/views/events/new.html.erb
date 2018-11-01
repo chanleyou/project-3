@@ -97,7 +97,6 @@
       <div class="panels">
 				<%= form_for @event do |f| %>
 
-
 					<!-- Panel 1 -->
 	        <div class="panel">
 	          <header class="panel__header">
@@ -136,19 +135,22 @@
 	          </header>
 
 						<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
-					  <ul>
+					  <ul class>
 					    <%= f.nested_fields_for :dishes do |dishes_form| %>
 					      <li>
 					        <%= dishes_form.label :name %>
 					        <%= dishes_form.text_field :name %>
 									<%= dishes_form.label :description %>
 									<%= dishes_form.text_field :description %>
+									<%= dishes_form.label :"category, [TBU]" %>
+									<%= dishes_form.select :course, ['Starter', 'Main', 'Dessert', 'Beverage'] %>
 									<%= dishes_form.label :price %>
 									<%= dishes_form.text_field :price %>
 									<%= dishes_form.remove_nested_fields_link %>
 					      </li>
 							<% end %>
 						</ul>
+
 	        </div>
 
 					<!-- Panel 3 -->
@@ -159,13 +161,24 @@
 	          </header>
 
 	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="left" title="Tooltip on top">
+							<img src=<%= image_url 'truck_basic.jpg' %> style="width: 200px">
+						</button>
+						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="top" title="Tooltip on right">
+						  Tooltip on right
+						</button>
+						<button class= "truck_btn" type="button" data-toggle="tooltip" data-placement="right" title="Tooltip on bottom">
+						  Tooltip on bottom
+						</button>
+
 	          <p>
 							<%= f.label :"Start date" %><br>
-							<%= f.datetime_select :start_date %>
+							<%= f.date_select :start_date %>
 						</p>
 						<p>
 							<%= f.label :"End date" %><br>
-							<%= f.datetime_select :end_date %>
+							<%= f.date_select :end_date %>
 						</p>
 	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
 	        </div>
@@ -178,7 +191,6 @@
 	          </header>
 
 					  <p>
-					    <%= f.label :photo_url %><br>
 					    <%= f.file_field :photo_url %>
 					  </p>
 
@@ -199,10 +211,9 @@
 			<% end %>
 
     </div>
-
 		<!-- After submit -->
     <h1 class="wizard__congrats-message">
-      Congratulations, you're all set!
+      Well done, you're all set!
     </h1>
   </div>
 </div>
