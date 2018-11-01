@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 		@popular = Event.order(views: :desc).take(3)
 
 		@upcoming = Event.order(:end_date)
-		
+
 		@upcoming = @upcoming.select { |event| (event.end_date - Time.now) > 0 }.take(3)
 	end
 
@@ -32,13 +32,15 @@ class EventsController < ApplicationController
 		else
 			@orders = []
 		end
-		
+
 		@orders.sort_by {|order| order.time }
 	end
 
 	def new
 		@event = Event.new
 		1.times { @event.dishes.build }
+
+    gon.something = "hello"
   end
 
 	def edit

@@ -1,5 +1,6 @@
+console.log("New event form custom scripts running");
+console.log(gon.something);
 
-console.log("New event form custom scripts running")
 var addressInput = document.getElementById('addressInput');
 var postcodeInput = document.getElementById('postcodeInput');
 var latHide = document.getElementById('latitudeHidden');
@@ -36,8 +37,12 @@ addressInput.value = place.name;
 };
 
 
+var modalTitle = document.querySelector("#truckModal .modal-title");
 
-$('#truckModal1').on('show.bs.modal', function() {
+
+
+
+$('#truckModal').on('show.bs.modal', function() {
 
     flatpickr('#flatpickr-input', {
         // plugins: [new rangePlugin({ input: "#flatpickr-input2"})],

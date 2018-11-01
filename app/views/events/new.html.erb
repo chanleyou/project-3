@@ -134,7 +134,7 @@
 	            <p class="panel__subheading">[Subheading here]</p>
 	          </header>
 
-						<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
+						<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Dish</button><% end %>
 					  <ul class>
 					    <%= f.nested_fields_for :dishes do |dishes_form| %>
 					      <li>
@@ -165,7 +165,7 @@
 						<div class="card-deck">
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal1">
+								<a href="" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_basic.jpg' %> alt="Basic truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Basic truck</h5>
@@ -175,7 +175,7 @@
 							</div>
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal2">
+								<a href="" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_kitchen.jpg' %> alt="Kitchen truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Kitchen truck</h5>
@@ -185,7 +185,7 @@
 							</div>
 
 							<div class="card">
-								<a href="" data-toggle="modal" data-target="#truckModal3">
+								<a href="" data-toggle="modal" data-target="#truckModal">
 								  <img class="card-img-top" src=<%= image_url 'truck_freezer.jpg' %> alt="Freezer truck">
 								  <div class="card-body">
 								    <h5 class="card-title">Freezer truck</h5>
@@ -252,8 +252,8 @@
 </div>
 
 
-<!-- Truck 1 modal -->
-<div class="modal fade" id="truckModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Truck modal -->
+<div class="modal fade" id="truckModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
