@@ -3,4 +3,10 @@
 <p>Description: <br>
 <%= @chef.description %></p>
 
+<% @events.each do |event| %>
+<div>
+				<% event.title %>
+										</div>
+	<% end %>
+
 <%= link_to 'Back', chefs_path %>
