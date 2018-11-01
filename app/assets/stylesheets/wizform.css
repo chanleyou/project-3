@@ -1,3 +1,5 @@
+
+
 .card {
 	border: 1px solid transparent;
 }
@@ -17,22 +19,18 @@
 }
 
 
-/*body, html {
-  padding: 0;
-  margin: 0;
-  background: #F7F8FA;
-  font-family: 'Lato', sans-serif;
-  color: #676767;
-}*/
+
+
+
 
 .wrapper {
   position: relative;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 50px auto;
 }
 
 .wizard {
-  max-width: 620px;
+  max-width: 850px;
   margin: 0 auto;
 }
 .wizard__header {
@@ -176,10 +174,10 @@
   margin: 0;
 }
 .panel.movingOutBackward {
-  transform: translateX(-620px);
+  transform: translateX(-850px);
 }
 .panel.movingOutFoward {
-  transform: translateX(620px);
+  transform: translateX(850px);
 }
 .panel.movingIn {
   transform: translateX(0);
