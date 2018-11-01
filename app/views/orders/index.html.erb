@@ -1,9 +1,27 @@
-<h1>Order Index</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h1 class="display-4 my-3">Your Orders</h1>
+		</div>
 
-<% @orders.each do |order| %>
-	
-	<p><a href='<%= event_path(order.event) %>'>Order <%= order.id %></a><br>
-	<%= order.event.title %><br>
-	<%= order.time.localtime %></p>
+		<% @orders.each do |order| %>
+			
+			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="card my-2 p-2 rounded-0 small">
+					<p><strong>Order <%= order.id %></strong><br>
+					<a href='<%= event_path(order.event) %>'><%= order.event.title %></a><br>
+					<%= order.time.localtime.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
+					<ul>
+						<% order.orderitems.each do |orderitem| %>
+							<li><%=  orderitem.dish.name %> x<%= orderitem.quantity %> @ $<%= orderitem.dish.price %> each</li>
+							<% end %>
+						</ul>
+				</div>
+			</div>
 
-<% end %>
+		<% end %>
+	</div>
+
+	<div class="row py-4">
+	</div>
+</div>
