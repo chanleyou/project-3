@@ -1,30 +1,36 @@
-.truck_btn {
-	width: 30%;
-	margin: 1%;
-	padding: 0;
+
+
+.card {
+	border: 1px solid transparent;
 }
 
-.truck_btn img {
-	width: 100%;
+.card:hover {
+	border: 1px solid #c3c3c3;
+	box-shadow: 0px 0px 10px #c5c5c5;
+}
+
+.card a {
+	color: inherit;
+  text-decoration: inherit;
+}
+
+.flatpickr-calendar, .flatpickr-days {
+  width: auto !important;
 }
 
 
-/*body, html {
-  padding: 0;
-  margin: 0;
-  background: #F7F8FA;
-  font-family: 'Lato', sans-serif;
-  color: #676767;
-}*/
+
+
+
 
 .wrapper {
   position: relative;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 50px auto;
 }
 
 .wizard {
-  max-width: 620px;
+  max-width: 850px;
   margin: 0 auto;
 }
 .wizard__header {
@@ -101,6 +107,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+  z-index: -1;
 }
 .wizard.completed .wizard__content {
   animation: gettingOut 2s cubic-bezier(1, -0.71, 1, 1.16) forwards;
@@ -167,10 +174,10 @@
   margin: 0;
 }
 .panel.movingOutBackward {
-  transform: translateX(-620px);
+  transform: translateX(-850px);
 }
 .panel.movingOutFoward {
-  transform: translateX(620px);
+  transform: translateX(850px);
 }
 .panel.movingIn {
   transform: translateX(0);

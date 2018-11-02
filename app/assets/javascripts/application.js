@@ -17,8 +17,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery_ujs
 //= require nested_form_fields
-//= require flatpickr
 
 //= stub events_new
 //= stub wizform.js
@@ -31,4 +31,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip()
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
