@@ -1,5 +1,3 @@
-console.log("New event form custom scripts running");
-
 var addressInput = document.getElementById('addressInput');
 var postcodeInput = document.getElementById('postcodeInput');
 var latHide = document.getElementById('latitudeHidden');
@@ -10,6 +8,7 @@ var options = {
 };
 
 function initAutocomplete() {
+
     autocomplete = new google.maps.places.Autocomplete(addressInput, options);
 
     google.maps.event.addDomListener(addressInput, 'keydown', function(e) { // disables 'Enter' key submitting f when suggestions are open
@@ -21,21 +20,22 @@ function initAutocomplete() {
     autocomplete.addListener('place_changed', fillInAddress);
 };
 
+
 function fillInAddress() {
+
     var place = autocomplete.getPlace();
+
     for (var i = 0; i < place.address_components.length; i++) {
-  for (var j = 0; j < place.address_components[i].types.length; j++) {
-    if (place.address_components[i].types[j] == "postal_code") {
-              postcodeInput.value = place.address_components[i].long_name;
+      for (var j = 0; j < place.address_components[i].types.length; j++) {
+        if (place.address_components[i].types[j] == "postal_code") {
+                  postcodeInput.value = place.address_components[i].long_name;
+        };
+      };
     };
-  };
-};
-addressInput.value = place.name;
+    addressInput.value = place.name;
     latHide.value = place.geometry.location.lat();
     longHide.value = place.geometry.location.lng();
 };
-
-
 
 
 var modalTitle = document.querySelector("#truckModal .modal-title");
@@ -112,6 +112,7 @@ $('#truckModal').on('show.bs.modal', function(e) {
                 eventStartDateShow.innerHTML = flatpickr.formatDate(selectedDates[0], "l, J M, Y");
                 eventEndDateShow.innerHTML = flatpickr.formatDate(selectedDates[1], "l, J M, Y");
             };
+
         //     if (rentalDuration > 0) {
         //         rentalForm.style.display = "block";
 
@@ -121,11 +122,28 @@ $('#truckModal').on('show.bs.modal', function(e) {
         //         fieldRentalGrandTotal.textContent = `S$${(1.1 * rentalRate * rentalDuration).toFixed(2)}`;
         //         confirmationModalGrandTotal.textContent = `S$${(1.1 * rentalRate * rentalDuration).toFixed(2)}`;
         //     };
+
         }
     });
 });
 
 
+function fixMenuHeight() {
+  document.querySelector('.panels').style.height = document.querySelector(".movingIn").offsetHeight + "px";
+};
+
+window.onload = function() {
+
+  $(document).on("fields_added.nested_form_fields", function(event,param) {
+    fixMenuHeight();
+  });
+
+  $(document).on("fields_removed.nested_form_fields", function(event,param) {
+    fixMenuHeight();
+  });
+
+  document.querySelector(".wrapper").classList.remove("preload"); // Prevents awkward moving animations on page load, see CSS
+};
 
 
 
