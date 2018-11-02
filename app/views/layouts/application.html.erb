@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Fruck with Friends</title>
     <%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
 		<%= include_gon %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
 	<div class="container">
   <a class="navbar-brand" href="/">Fruck with Friends</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +27,7 @@
 			<li class="nav-item">
 			<%= link_to 'Events', events_path, class: 'nav-link' %>
 			</li>
-			<li class="nav-item">
+      <li class="nav-item">
 			<%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
       </li>
       <li class="nav-item dropdown">
