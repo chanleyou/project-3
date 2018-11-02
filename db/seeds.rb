@@ -8,7 +8,7 @@
 
 
 3.times do
- Truck.create!(trucktype: 'countertop')
+ Truck.create!(trucktype: 'basic')
 end
 
 3.times do
@@ -16,5 +16,5 @@ end
 end
 
 3.times do
- Truck.create!(trucktype: 'fridge')
+ Truck.create!(trucktype: 'freezer')
 end
