@@ -26,7 +26,11 @@
 body, html {
   padding: 0;
   margin: 0;
-  background: #F7F8FA;
+  background-image: url("background_one.jpg");
   font-family: 'Lato', sans-serif;
   // color: #676767;
 }
+h1, a {
+	font-family: 'Acme', sans-serif;
+}
+
