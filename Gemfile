@@ -8,6 +8,9 @@ gem 'nested_form_fields'
 gem 'flatpickr_rails'
 gem 'gon'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

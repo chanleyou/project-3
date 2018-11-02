@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
 	resources :orders
 
-  root 'events#landing'
+	root 'events#landing'
+	
+	get 'search', to: 'search#search'
 
 end

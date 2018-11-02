@@ -8,11 +8,16 @@
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-10">
 				<h1 class="display-4 text-light text-left">Eat tagline here.</h1>
-				<form>
-					<div class="form-group">
-						<input type="text" class="form-control form-control-lg display-4 shadow-sm" placeholder="Search" autocomplete="off">
+				<%= form_for :search, url: search_path, method: :get do |f| %>
+					<div class="form-group row">
+					<div class="col">
+						<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control dispaly-4 shadow-sm', autocomplete: 'off', placeholder: 'Search' %>
 					</div>
-				</form>
+					<div class="col-3 col-md-2">
+						<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary w-100' %>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
