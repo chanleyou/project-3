@@ -1,5 +1,3 @@
-
-
 .card {
 	border: 1px solid transparent;
 }
@@ -20,8 +18,15 @@
 
 
 
+/*Vanilla Wizard*/
 
-
+/*stops animations happening on page load*/
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
 
 .wrapper {
   position: relative;
