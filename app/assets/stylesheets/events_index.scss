@@ -1,3 +1,13 @@
+.container-fluid {
+	width: 95%
+}
+
+#map {
+	width: 100%;
+	height: 400px;
+}
+
+
 // Bootstrap 4 breakpoints & gutter
 $grid-breakpoints: (
     xs: 0,

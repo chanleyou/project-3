@@ -20,7 +20,8 @@
 //= require jquery_ujs
 //= require nested_form_fields
 
-//= stub events_new
+//= stub events_new.js
+//= stub events_index.js
 //= stub wizform.js
 
 

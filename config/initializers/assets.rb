@@ -14,6 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( wizform.js )
+Rails.application.config.assets.precompile += %w( events_index.js )
 Rails.application.config.assets.precompile += %w( events_new.js )
 Rails.application.config.assets.precompile += %w( events_index.scss )
 Rails.application.config.assets.precompile += %w( events_new.css )

@@ -2,25 +2,24 @@
 <%= stylesheet_link_tag "events_index" %>
 
 
-<div class="container-fluid" style="width: 95%;">
+<div class="container-fluid">
 
 	<div class="row my-4">
 
 		<!-- Left sidebar -->
 		<div class="col-xl-3 col-lg-4 col-md-5">
-			<h4>Search, filters, stuff go here</h4>
+			<div>
+				<h4>Search, filters, stuff go here</h4>
+			</div>
+			<div id="map"></div>
 		</div>
 
 		<!-- Events display -->
 		<div class="col-xl-9 col-lg-8 col-md-7">
-
-			<h1 class="display-4 mb-4 ml-1">Events</h1>
-
-			<div class="row">
+			<h1 class="display-4 mb-4">Events</h1>
 				<div class="card-deck">
 
 						<% @events.each do |event| %>
-
 							<div class="card mb-4 shadow-sm p-2 mx-2">
 								<div class="card-img-top">
 									<a href='<%= event_path(event) %>'>
@@ -38,13 +37,27 @@
 						      <small><%= event.start_time.strftime("%H:%M%P") %> to <%= event.end_time.strftime("%H:%M%P") %></small>
 						    </div>
 							</div>
-
 						<% end %>
 
 				</div>
-			</div>
-
-
 		</div>
 	</div>
 </div>
+
+
+
+
+<%= javascript_include_tag "events_index" %>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFHJd-010wTpUGyWk2qY8djx5kwywzdU&callback=initMap"></script>
+
+
+
+
+
+
+
+
+
+
+
+
