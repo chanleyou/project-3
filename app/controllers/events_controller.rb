@@ -16,6 +16,8 @@ class EventsController < ApplicationController
 		else
 			@events = Event.all
 		end
+
+    gon.events = Event.all
   end
 
 	def show

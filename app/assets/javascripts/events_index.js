@@ -1,18 +1,46 @@
 console.log("works");
 
+var geocoder;
+var map;
+
 
 function initMap() {
 
     // geocoder = new google.maps.Geocoder();
-    // bounds = new google.maps.LatLngBounds();
+    bounds = new google.maps.LatLngBounds();
     map = new google.maps.Map(document.getElementById('map'), {
 
         center: { lat: 1.3521, lng: 103.8198 },
         zoom: 11,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         mapTypeControl: false,
-        clickableIcons: false
+        clickableIcons: false,
+        // streetViewControl: false
     });
+
+    for (let i = 0; i < gon.events.length; i++) {
+
+        if (gon.events[i].lat && gon.events[i].lng) {
+
+            let position = {lat: parseFloat(gon.events[i].lat), lng: parseFloat(gon.events[i].lng)};
+            let marker = new google.maps.Marker({
+                map: map,
+                position: position,
+                animation: google.maps.Animation.DROP
+            });
+
+            bounds.extend(position);
+            map.fitBounds(bounds);
+
+            marker.addListener('mouseover', function() {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            });
+
+            marker.addListener('mouseout', function() {
+                marker.setAnimation(-1);
+            });
+        };
+    };
 
 
     // for (let i = 0; i < carlist.length; i++) {
