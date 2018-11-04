@@ -17,7 +17,10 @@ class EventsController < ApplicationController
 			@events = Event.all
 		 else
 			@events = Event.search params[:q]
-		 end
+		end
+
+    gon.search_post = params[:p]
+    gon.events = @events
   end
 
 	def show

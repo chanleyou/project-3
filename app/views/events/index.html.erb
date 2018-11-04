@@ -9,7 +9,24 @@
 		<!-- Left sidebar -->
 		<div class="col-xl-3 col-lg-4 col-md-5">
 			<div>
-				<h4>Search, filters, stuff go here</h4>
+				<%= form_for :search, url: events_path, method: :get do |f| %>
+<!-- 					<div class="form-group row">
+						<div class="col-8 col-md-9">
+							<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search' %>
+						</div>
+						<div class="col-3 col-md-2">
+							<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary' %>
+						</div>
+					</div> -->
+					<div class="form-group row">
+						<div class="col-8 col-md-9">
+							<%= text_field_tag :p, params[:p], class: 'form-control-lg form-control', placeholder: 'Your postal code' %>
+						</div>
+						<div class="col-3 col-md-2">
+							<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary' %>
+						</div>
+					</div>
+				<% end %>
 			</div>
 			<div id="map"></div>
 		</div>
@@ -54,7 +71,7 @@
 
 
 <%= javascript_include_tag "events_index" %>
-<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFHJd-010wTpUGyWk2qY8djx5kwywzdU&callback=initMap"></script>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFHJd-010wTpUGyWk2qY8djx5kwywzdU&libraries=geometry&callback=initMap"></script>
 
 
 
