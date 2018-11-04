@@ -33,11 +33,11 @@
 			</div>
 		</div>
 
+		
+		<div class="col-12">
+		<div class="card p-3 my-2 shadow-sm">
+		
 		<% if @orders.length > 0 && (current_chef == @event.chef || current_customer) %>
-			
-			<div class="col-12">
-				<div class="card p-3 my-2 shadow-sm">
-
 					<h4 class="text-center mb-0"><% if current_customer %>Your <% end %>Preorders</h4>
 
 					<% @orders.each do |order| %>
@@ -46,29 +46,23 @@
 							<p class="small">
 								<strong>Order <%= order.id %></strong><br>
 								<% if current_chef %>Customer: <%= order.customer.username %><br><% end %>
-								Time: <%= order.time.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
+								Time: <%= order.time.strftime("%l:%M%P %a #{order.time.day.ordinalize} %b %Y") %><br>
 								Total: $<%= order.total %></p>
 								
 								<p class="small"><% order.orderitems.each do |orderitem| %>
 								<%= orderitem.quantity %> x  <%=  orderitem.dish.name %> 
 									<% end %></p>
 							</p>
-
-	
-	
 						</div>
-					</div>
-								
-								
-								
 						
-
 					<% end %>
 					
 				</div>
 			</div>
 
 		<% end %>
+
+	
 
 	</div>
 </div>

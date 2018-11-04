@@ -29,6 +29,8 @@ class OrdersController < ApplicationController
 		@dishes = @event.dishes
 		1.times { @order.orderitems.build }
 
+		gon.event = @event
+
 	end
 	
 	def create

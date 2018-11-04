@@ -1,33 +1,36 @@
 <div class="container">
-<h1 class="my-4">Preorder for <%= @event.title %> </h1>
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow-sm p-3 my-4">
 
-<%= form_for @order do |form| %>
+				<h1 class="mb-4">Preorder for <%= @event.title %> </h1>
+				
+				<%= form_for @order do |form| %>
+				
+					<%= form.hidden_field :event_id, value:@event.id %>
+				
+						<label>Time: </label>
+						<%= form.datetime_select :time, minute_step: 10, start_hour: @event.start_time.hour, end_hour: @event.end_time.hour - 1, start_year: @event.start_date.year, end_year: @event.end_date.year, default: @event.start_date, ampm: true %>	
 
-	<%= form.hidden_field :event_id, value:@event.id %>
+					<%= form.nested_fields_for :orderitems do |orderitems_form| %>
 
-	<p>
-		<%= form.label :time %><br>
-		<%= form.datetime_select :time, minute_step: 10, start_hour: @event.start_time.hour, end_hour: @event.end_time.hour, start_year: @event.start_date.year %>
-	</p>	
+					
+						<div class="input-group form-group mt-3">
+							<%= orderitems_form.collection_select:dish_id, @dishes, :id, :menuprice, {}, {class: "custom-select form-control"} %>
+								<div class="input-group-append">
+									<%= orderitems_form.number_field :quantity, value: 1, class: "form-control rounded-0" %>
+									<%= orderitems_form.remove_nested_fields_link "X", class: "btn btn-outline-secondary" %>
+								</div>
+						</div>
+						
+						<% end %>
+						<%= form.add_nested_fields_link :orderitems do %><button class="btn btn-primary">Add Item</button><% end %>
+				
+					<%= form.submit "Order", class: "btn btn-primary" %>
+				
+				<% end %>
+			</div>
+		</div>
+	</div>
 
-	<%= form.add_nested_fields_link :orderitems do %><button class="btn btn-primary btn-sm">Add Item</button><% end %>
-		
-		<br><br>
-
-	<%= form.nested_fields_for :orderitems do |orderitems_form| %>
-		
-		<label>Item<label>
-		<%= orderitems_form.collection_select :dish_id, @dishes, :id, :name %>
-
-		<p>
-			<%= orderitems_form.label :quantity %><br>
-			<%= orderitems_form.number_field :quantity %>
-			<%= orderitems_form.remove_nested_fields_link %>
-		</p>
-
-	<% end %>
-
-	<%= form.submit "Order", class: "btn btn-primary" %>
-
-<% end %>
 </div>

@@ -36,6 +36,10 @@ class EventsController < ApplicationController
 		end
 
 		@orders.sort_by {|order| order.time }
+
+		@order = Order.new
+		@dishes = @event.dishes
+		1.times { @order.orderitems.build }
 	end
 
 	def new
