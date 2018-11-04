@@ -10,17 +10,15 @@
 		<div class="col-xl-3 col-lg-4 col-md-5">
 			<div>
 				<%= form_for :search, url: events_path, method: :get do |f| %>
-<!-- 					<div class="form-group row">
-						<div class="col-8 col-md-9">
-							<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search' %>
-						</div>
-						<div class="col-3 col-md-2">
-							<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary' %>
-						</div>
-					</div> -->
 					<div class="form-group row">
 						<div class="col-8 col-md-9">
-							<%= text_field_tag :p, params[:p], class: 'form-control-lg form-control', placeholder: 'Your postal code' %>
+							<input class="search-toggle" type="checkbox" checked>
+							<div class="search-gen">
+								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search events' %>
+							</div>
+							<div class="search-loc d-none">
+								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control', placeholder: 'Your postal code' %>
+							</div>
 						</div>
 						<div class="col-3 col-md-2">
 							<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary' %>
@@ -69,7 +67,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 

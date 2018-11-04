@@ -1,6 +1,11 @@
-console.log("event_index.js");
 
+eventDeck = document.querySelector(".card-deck")
 eventCards = document.querySelectorAll(".eventcard");
+// searchTog = document.querySelector(".search-toggle");
+searchGen = document.querySelector(".search-gen");
+searchLoc = document.querySelector(".search-loc");
+
+
 
 $(document).ready(function () {
 
@@ -8,7 +13,55 @@ $(document).ready(function () {
         window.location = $(this).find("a:first").attr("href");
         return false;
     });
+
+    $(".search-toggle").bootstrapToggle({
+      on: '<i class="fas fa-info"></i>',
+      off: '<i class="fas fa-map-marker-alt"></i>',
+      size: 'large',
+      onstyle: 'danger',
+      offstyle: 'danger'
+    });
+
+    $('.search-toggle').change(function() {
+      toggleSearchBars();
+    })
 });
+
+
+window.onload = function() {
+    if (gon.params.p && gon.params.p.length > 0) {
+        $('.search-toggle').bootstrapToggle('off');
+    };
+};
+
+
+function toggleSearchBars() {
+    if (searchLoc.classList.contains("d-none")) {
+        document.getElementById("q").value = null;
+        searchGen.classList.add("d-none");
+        searchLoc.classList.remove("d-none");
+    } else {
+        document.getElementById("p").value = null;
+        searchLoc.classList.add("d-none");
+        searchGen.classList.remove("d-none");
+    };
+};
+
+
+function sortCards(cards) {
+    var eventCardsArr = [].slice.call(cards).sort(function (a, b) {
+        a = a.querySelector("p.badge").textContent;
+        b = b.querySelector("p.badge").textContent;
+        if(a === "" || a === null) return 1;
+        if(b === "" || b === null) return -1;
+        if(a === b) return 0;
+        return a < b ? -1 : 1;
+    });
+    eventCardsArr.forEach(function (div) {
+        div.parentElement.appendChild(div);
+    });
+};
+
 
 function initMap() {
 
@@ -25,9 +78,9 @@ function initMap() {
         // streetViewControl: false
     });
 
-    if (gon.search_post) {
+    if (gon.params.p) {
 
-        geocoder.geocode({ 'address': `Singapore ${gon.search_post}`, componentRestrictions: {country: 'SG'} }, function(results, status) {
+        geocoder.geocode({ 'address': `Singapore ${gon.params.p}`, componentRestrictions: {country: 'SG'} }, function(results, status) {
 
             if (status === 'OK') {
 
@@ -60,6 +113,7 @@ function initMap() {
                 });
 
                 addMarkers();
+                sortCards(eventCards);
 
                 map.fitBounds(eventCircle.getBounds());
 
@@ -91,7 +145,7 @@ function initMap() {
                     animation: google.maps.Animation.DROP
                 });
 
-                if (gon.search_post) {
+                if (gon.params.p) {
 
                     dist = `${(google.maps.geometry.spherical.computeDistanceBetween(position, position_search) / 1000).toFixed(2)}km`;
                     infowindow = new google.maps.InfoWindow({

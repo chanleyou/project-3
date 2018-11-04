@@ -13,14 +13,15 @@ class EventsController < ApplicationController
 	end
 
 	def index
-		if params[:q].nil?
-			@events = Event.all
-		 else
-			@events = Event.search params[:q]
-		end
 
-    gon.search_post = params[:p]
+    if params[:q] && !params[:q].empty?
+      @events = Event.search params[:q]
+    else
+      @events = Event.all
+    end
+
     gon.events = @events
+    gon.params = params
   end
 
 	def show
