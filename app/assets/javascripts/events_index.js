@@ -86,10 +86,12 @@ function initMap() {
                     dist = `${(google.maps.geometry.spherical.computeDistanceBetween(position, position_search) / 1000).toFixed(2)}km`;
                     infowindow = new google.maps.InfoWindow({
                         content: `<div class="info-window-content">
-                        <strong>${gon.events[i].title}</strong><br>
-                        ${gon.events[i].description}<br>
-                        ${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}<br>
-                        ${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
+                        <a href="/events/${gon.events[i].id}">
+                            <strong>${gon.events[i].title}</strong>
+                        </a>
+                        <br>${gon.events[i].description}
+                        <br>${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}
+                        <br>${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
                         <br>${dist} away
                         </div>`
                     });
@@ -98,10 +100,12 @@ function initMap() {
 
                     infowindow = new google.maps.InfoWindow({
                         content: `<div class="info-window-content">
-                        <strong>${gon.events[i].title}</strong><br>
-                        ${gon.events[i].description}<br>
-                        ${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}<br>
-                        ${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
+                        <a href="/events/${gon.events[i].id}">
+                            <strong>${gon.events[i].title}</strong>
+                        </a>
+                        <br>${gon.events[i].description}
+                        <br>${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}
+                        <br>${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
                         </div>`
                     });
                 };
@@ -109,19 +113,28 @@ function initMap() {
                 bounds.extend(position);
                 map.fitBounds(bounds);
 
-                marker.addListener('mouseover', function() {
+                marker.addListener('click', function() {
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     infowindow.open(map, this);
                 });
 
-                marker.addListener('mouseout', function() {
+                google.maps.event.addListener(map, "click", function(event) {
                     marker.setAnimation(-1);
                     infowindow.close();
                 });
 
-                marker.addListener('click', function() {
-                        window.location.href = `/events/${gon.events[i].id}`;
+                google.maps.event.addListener(infowindow,'closeclick',function() {
+                   marker.setAnimation(-1);
                 });
+
+                // marker.addListener('mouseout', function() {
+                //     marker.setAnimation(-1);
+                //     infowindow.close();
+                // });
+
+                // marker.addListener('click', function() {
+                //         window.location.href = `/events/${gon.events[i].id}`;
+                // });
             };
         };
     };
