@@ -1,23 +1,20 @@
-<div class="jumbotron jumbotron-fluid" style="background-image: url('<%= image_url 'background.jpg' %>'); background-position: center; min-height: 325px; ">
+<div class="jumbotron jumbotron-fluid hero" style="background-image: url('<%= image_url 'burger.jpg' %>');">
 
 	<div class="container">
 
-	<div class="row py-4">
-		</div>
-
 		<div class="row justify-content-center">
-			<div class="col-12 col-md-10">
-				<h1 class="display-4 text-light text-left">Eat tagline here.</h1>
-				<%= form_for :search, url: events_path, method: :get do |f| %>
-					<div class="form-group row">
-					<div class="col">
-						<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search' %>
-					</div>
-					<div class="col-3 col-md-2">
-						<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary w-100' %>
+			<div class="col-12">
+				<div class="card bg-white p-4 shadow-lg">
+					<h2 class="mb-3 text-left ml-1">Feeling hungry?</h2>
+					<%= form_for :search, url: events_path, method: :get do |f| %>
+						<div class="form-group input-group">
+							<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead rounded-0', placeholder: 'Search' %>
+							<div class="input-group-append">
+								<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-danger rounded-0' %>
+							</div>
 						</div>
-					</div>
-				<% end %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -26,7 +23,7 @@
 
 <div class="container">
 
-	<div class="row my-5 justify-content-center">
+	<div class="row justify-content-center">
 
 	<div class="col-11 col-md-8 col-lg-12">
 		<h3 class="mt-2 mb-0 mx-1">Popular</h3>
