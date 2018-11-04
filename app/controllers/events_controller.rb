@@ -13,13 +13,11 @@ class EventsController < ApplicationController
 	end
 
 	def index
-		if params.has_key?(:chef_id)
-			@events = Event.where(chef_id: params[:chef_id] )
-		else
+		if params[:q].nil?
 			@events = Event.all
-		end
-
-    gon.events = Event.all
+		 else
+			@events = Event.search params[:q]
+		 end
   end
 
 	def show
