@@ -33,42 +33,39 @@
 			</div>
 		</div>
 
-		<% if @orders.length > 0 && (current_chef == @event.chef || current_customer) %>
-			
-			<div class="col-12">
-				<div class="card p-3 my-2 shadow-sm">
-
-					<h4 class="text-center mb-0"><% if current_customer %>Your <% end %>Preorders</h4>
-
+		<% if @orders.length > 0 %>
+		
+		<div class="col-12">
+		<div class="card p-3 my-2 shadow-sm">
+		
+					<h4 class="text-center mb-3"><% if current_customer %>Your <% end %>Preorders</h4>
+					
+					<div class="row">
+					
 					<% @orders.each do |order| %>
-
-						<div class="col-12 col-md-6">
-							<p class="small">
-								<strong>Order <%= order.id %></strong><br>
-								<% if current_chef %>Customer: <%= order.customer.username %><br><% end %>
-								Time: <%= order.time.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
-								Total: $<%= order.total %></p>
-								
-								<p class="small"><% order.orderitems.each do |orderitem| %>
-								<%= orderitem.quantity %> x  <%=  orderitem.dish.name %> 
-									<% end %></p>
-							</p>
-
-	
-	
-						</div>
-					</div>
-								
-								
-								
 						
-
-					<% end %>
+						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+						<p class="small">
+						<strong>Order <%= order.id %></strong><br>
+						<% if current_chef %>Customer: <%= order.customer.username %><br><% end %>
+						Time: <%= order.time.strftime("%l:%M%P %a #{order.time.day.ordinalize} %b %Y") %><br>
+						Total: $<%= order.total %></p>
+						
+						<p class="small"><% order.orderitems.each do |orderitem| %>
+							<%= orderitem.quantity %> x  <%=  orderitem.dish.name %><br>
+							<% end %></p>
+							</p>
+							</div>
+							
+							<% end %>
+							</div>
 					
 				</div>
 			</div>
 
 		<% end %>
+
+	
 
 	</div>
 </div>

@@ -1,23 +1,34 @@
+<div class="container">
 
-<h1>Chefs</h1>
+	<div class="row">
+	
+		<div class="col-12">
+		
+			<h1 class="my-4 ml-2">Chefs</h1>
 
-<% @chefs.each do |chef| %>
+		</div>
 
-	<div class="card mb-3 shadow-sm p-2">
-	<div class="row margin-top-20 margin-bottom-20">
-		<a href='<%= chef_path(chef) %>'>
-						<div class="col col-2">
-							<%= image_tag( "default_profile.jpg", size: "150x150", :alt => "rss feed") -%>
+			<% @chefs.each do |chef| %>
+			
+				<div class="col-12">
+					<div class="card shadow-sm p-3">
+						<div class="row">
+							<div class="col-2">
+								<%= image_tag( "default_profile.jpg", class: "img-fluid") -%>
+							</div>
+							<div class="col">
+								<h4 class="mb-0"><a href='<%= chef_path(chef) %>'><%= chef.name %></a></h4>
+								<p>Events: <%= chef.events.length %></p>
+								<p><%= chef.description %></p>
+							</div>
 						</div>
-		</a>
-						<div class="col col-10">
-							  <div class="card-body">
-							    <h5 class="card-title">NAME: <%= chef.name %></h5>
-							    <h5 class="card-title">DESCRIPTION: <%= chef.description %></h5>
-							    <p> REGISTERED SINCE: <%= chef.created_at %></p>
-							  </div>
-						</div>
-	</div>
+					
+					</div>
+				
+				</div>
+			
+			<% end %>
+
 	</div>
 
-<% end %>
+</div>
