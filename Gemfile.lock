@@ -111,8 +111,6 @@ GEM
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
-    flatpickr_rails (1.1.0)
-      railties (>= 3.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gon (6.2.1)
@@ -151,6 +149,8 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.2.4)
     multi_json (1.13.1)
     multipart-post (2.0.0)
@@ -273,11 +273,11 @@ DEPENDENCIES
   devise
   elasticsearch-model
   elasticsearch-rails
-  flatpickr_rails
   gon
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  momentjs-rails
   nested_form_fields
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
