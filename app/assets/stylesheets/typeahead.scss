@@ -9,8 +9,9 @@
 }
 
 .tt-menu {    /* used to be tt-dropdown-menu in older versions */
-  width: 422px;
-  margin-top: 4px;
+	margin-top: 4px;
+	text-align: left !important;
+	width: 80% !important;
   padding: 4px 0;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -25,7 +26,7 @@
 
 .tt-suggestion {
   padding: 3px 20px;
-  line-height: 24px;
+	line-height: 24px;
 }
 
 .tt-suggestion.tt-cursor,.tt-suggestion:hover {
@@ -39,5 +40,5 @@
 }
 
 .twitter-typeahead {
-	width: 100% !important;
+	width: 80% !important;
 }

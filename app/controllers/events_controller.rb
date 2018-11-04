@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-	before_action :authenticate_chef!, :except => [ :show, :index, :landing, :faq ]
+	before_action :authenticate_chef!, :except => [ :show, :index, :landing, :faq, :autocomplete ]
 
 	def landing
 		@popular = Event.order(views: :desc).take(3)
