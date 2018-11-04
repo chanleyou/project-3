@@ -3,11 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'devise'
+gem 'bootstrap'
+gem 'jquery-rails'
 gem 'cloudinary'
 gem 'nested_form_fields'
-gem 'flatpickr_rails'
 gem 'gon'
-
+gem 'momentjs-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
@@ -68,7 +70,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'devise'
-gem 'bootstrap'
-gem 'jquery-rails'

@@ -29,16 +29,31 @@ function initMap() {
                 animation: google.maps.Animation.DROP
             });
 
+            let infowindow = new google.maps.InfoWindow({
+                content: `<div class="info-window-content">
+                <strong>${gon.events[i].title}</strong><br>
+                ${gon.events[i].description}<br>
+                ${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}<br>
+                ${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
+                </div>`
+            });
+
             bounds.extend(position);
             map.fitBounds(bounds);
 
             marker.addListener('mouseover', function() {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+                infowindow.open(map, this);
             });
 
             marker.addListener('mouseout', function() {
                 marker.setAnimation(-1);
+                infowindow.close();
             });
+
+            marker.addListener('click', function() {
+                    window.location.href = `/events/${gon.events[i].id}`;
+                });
         };
     };
 
