@@ -12,6 +12,7 @@ gem 'gon'
 gem 'momentjs-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'searchkick'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

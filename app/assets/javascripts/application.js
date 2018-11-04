@@ -13,13 +13,15 @@
 //= require rails-ujs
 //= require activestorage
 
-//= require_tree .
 //= require jquery3
+//= require_tree .
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap.min
 //= require nested_form_fields
 //= require moment
+//= require typeahead
 
 //= stub events_new.js
 //= stub events_index.js
@@ -27,10 +29,10 @@
 
 
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
+	$('[data-toggle="popover"]').popover();
 });
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip()
+	$('[data-toggle="tooltip"]').tooltip()
 });
 

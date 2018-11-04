@@ -6,7 +6,7 @@
 			<%= form_for search_path, method: :get do |f| %>
 				<div class="row">
 					<div class="col">
-						<%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search' %>
+						<%= text_field_tag :q, params[:q], class: 'form-control typeahead', placeholder: 'Search' %>
 					</div>
 					<div class="col-3 col-md-2 col-lg-1">
 						<%= submit_tag "Go", name: nil, class: 'btn btn-primary w-100' %>
@@ -33,7 +33,7 @@
 						<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 					</div>
 					<div class="card-body py-1 px-0">
-					<p class="card-text small"><%= Date.parse(event.start_date).strftime("%a %-d/%-m/%y") %> to <%= Date.parse(event.end_date).strftime("%a %-d/%-m/%y") %><br>
+					<p class="card-text small"><%= event.start_date.strftime("%a %-d/%-m/%y") %> to <%= event.end_date.strftime("%a %-d/%-m/%y") %><br>
 						<%= event.address %> <%= event.postcode %></p>
 					</div>
 				</div>

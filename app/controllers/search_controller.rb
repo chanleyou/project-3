@@ -5,5 +5,5 @@ class SearchController < ApplicationController
 		else
 		 @events = Event.search params[:q]
 		end
-	 end
+	end
 end

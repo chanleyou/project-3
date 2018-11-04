@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 		@upcoming = Event.order(:end_date)
 
 		@upcoming = @upcoming.select { |event| (event.end_date - Time.now) > 0 }.take(3)
+
+		gon.events = Event.all
 	end
 
 	def index
@@ -80,6 +82,12 @@ class EventsController < ApplicationController
 		@event.destroy
 
 		redirect_to events_path
+	end
+
+	def autocomplete
+		render json: Event.search(params[:q]).map do |event|
+			{ title: event.title, value: event.id }
+		end
 	end
 
 	private

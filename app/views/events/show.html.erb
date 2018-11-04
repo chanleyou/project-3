@@ -9,8 +9,8 @@
 
 		<div class="col-8" style="padding: 4px">
 			<h1 class="display-4 mt-2"><%= @event.title %></h1>
-			<p class="my-0">FROM: <%= @event.start_date.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
-			<p>TO: <%= @event.end_date.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
+			<p class="my-0">FROM: <%= @event.start_date.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
+			<p>TO: <%= @event.end_date.strftime("%H:%M%P %a %-d/%-m/%y") %></p>
 			<p class="mt-0 mb-3">LOCATION: <%= @event.address %> <%= @event.postcode %></p>
 			<p>ABOUT: <%= @event.description %></p>
 		</div>
@@ -82,7 +82,7 @@
 
 							  						<p><strong>Order <%= order.id %></strong><br>
 							  						<% if current_chef %>Customer: <%= order.customer.username %><br><% end %>
-							  						Time: <%= order.time.localtime.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
+							  						Time: <%= order.time.strftime("%H:%M%P %a %-d/%-m/%y") %><br>
 							  						Total: $<%= order.total %></p>
 
 

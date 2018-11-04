@@ -22,6 +22,8 @@ class Event < ActiveRecord::Base
 		)
 	 end
 
+	 searchkick word_start: [:title]
+
 end
 
 Event.import force: true # for auto sync model with elastic search

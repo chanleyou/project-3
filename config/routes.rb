@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 		resources :orders
 
 		collection do
+			get :autocomplete
+		end
+
+		collection do
 			get 'landing'
 		end
 
