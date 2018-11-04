@@ -2,13 +2,36 @@
 // 	background: white;
 // }
 
-.container-fluid {
-	width: 95%
-}
+// .container-fluid {
+// 	width: 95%
+// }
 
 #map {
 	width: 100%;
 	height: 400px;
+}
+
+.eventcard {
+	a img {
+		width: 100%;
+		height: 12rem;
+		object-fit: cover;
+		object-position: center;
+		background-color: black;
+	}
+
+	p.viewcount {
+		position: absolute;
+		top: 0.75rem;
+		right: 1rem;
+	}
+
+	p.badge {
+		position: absolute;
+		transform: translateY(-50%);
+		right: 1rem;
+		// border: 1px solid red;
+	}
 }
 
 
