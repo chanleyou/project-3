@@ -6,14 +6,32 @@
 // 	width: 95%
 // }
 
-#map {
+.map-container {
+	height: 70vh;
+}
+
+.map-container #map {
 	width: 100%;
-	height: 400px;
+	height: 100%;
+}
+
+.info-window-content a {
+	color: #8C0902;
 }
 
 .search-sidebar {
 	min-width: 400px;
 	max-width: 400px;
+}
+
+@media only screen and (max-width: 576px) {
+    .search-sidebar {
+    	width: 100%;
+    }
+
+    .map-container {
+			height: 20vh;
+		}
 }
 
 .events-index-body {

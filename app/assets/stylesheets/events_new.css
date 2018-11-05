@@ -37,7 +37,7 @@
 }
 
 .wizard {
-  max-width: 850px;
+  max-width: 750px;
   margin: 0 auto;
 }
 .wizard__header {
@@ -48,7 +48,7 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   text-align: center;
-  height: 300px;
+  height: 375px;
   background: url("truck_kitchen2.jpg");
   background-color: #4D637B;
   background-position: center;
@@ -181,10 +181,10 @@
   margin: 0;
 }
 .panel.movingOutBackward {
-  transform: translateX(-850px);
+  transform: translateX(-750px);
 }
 .panel.movingOutFoward {
-  transform: translateX(850px);
+  transform: translateX(750px);
 }
 .panel.movingIn {
   transform: translateX(0);

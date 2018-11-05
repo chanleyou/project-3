@@ -1,252 +1,267 @@
 
 <%= stylesheet_link_tag "events_new" %>
 
+<div class="container-fluid">
+	<div class="wrapper preload">
+	  <div id="wizard" class="wizard">
+	    <div class="wizard__content">
+	      <header class="wizard__header">
+	        <div class="wizard__header-overlay"></div>
 
-<div class="wrapper preload">
-  <div id="wizard" class="wizard">
-    <div class="wizard__content">
-      <header class="wizard__header">
-        <div class="wizard__header-overlay"></div>
-
-        <div class="wizard__header-content">
-          <h1 class="wizard__title" >Get Frucking!</h1>
-          <p class="wizard__subheading">Register your event in <span>4</span> simple steps.</p>
-        </div>
-
-        <div class="wizard__steps">
-          <nav class="steps">
-	          <div class="step">
-	            <div class="step__content">
-	              <p class="step__number"><i class="fas fa-map-marker-alt"></i></p>
-	              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-	                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-	                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-	              </svg>
-
-	              <div class="lines">
-	                <div class="line -start">
-	                </div>
-
-	                <div class="line -background">
-	                </div>
-
-	                <div class="line -progress">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-
-	          <div class="step">
-	            <div class="step__content">
-	              <p class="step__number"><i class="fas fa-utensils"></i></p>
-	              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-	                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-	                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-	              </svg>
-
-	              <div class="lines">
-	                <div class="line -background">
-	                </div>
-
-	                <div class="line -progress">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-
-	          <div class="step">
-	            <div class="step__content">
-	              <p class="step__number"><i class="fas fa-truck"></i></p>
-	              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-	                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-	                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-	              </svg>
-
-	              <div class="lines">
-	                <div class="line -background">
-	                </div>
-
-	                <div class="line -progress">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-
-	          <div class="step">
-	            <div class="step__content">
-	              <p class="step__number"><i class="fas fa-camera-retro"></i></p>
-	              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-	                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-	                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-	              </svg>
-
-	              <div class="lines">
-	                <div class="line -background">
-	                </div>
-
-	                <div class="line -progress">
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-        	</nav>
-        </div>
-      </header>
-
-
-      <div class="panels">
-				<%= form_for @event do |f| %>
-
-					<!-- Panel 1 -->
-	        <div class="panel">
-	          <header class="panel__header">
-	            <h2 class="panel__title">Event details</h2>
-	            <p class="panel__subheading">Give your event a cool name, and tell us where it'll be at.</p>
-	          </header>
-
-	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-					  <p>
-					    <%= f.label :title %><br>
-					    <%= f.text_field :title %>
-					  </p>
-					  <p>
-					    <%= f.label :description %><br>
-					    <%= f.text_area :description %>
-					  </p>
-					  <p>
-					    <%= f.label :'Street address' %><br>
-					    <%= f.text_field :address, placeholder: '', id: 'addressInput' %>
-					  </p>
-					  <p>
-					    <%= f.label :'postcode' %><br>
-					    Singapore <%= f.text_field :postcode, id: 'postcodeInput' %>
-					  </p>
-
+	        <div class="wizard__header-content">
+	          <h1 class="wizard__title" >Get Truckin'!</h1>
+	          <p class="wizard__subheading">Register your event in <span>4</span> simple steps.</p>
 	        </div>
 
-					<!-- Panel 2 -->
-	        <div class="panel">
-	          <header class="panel__header">
-	            <h2 class="panel__title">Your menu</h2>
-	            <p class="panel__subheading">[Subheading here]</p>
-	          </header>
+	        <div class="wizard__steps">
+	          <nav class="steps">
+		          <div class="step">
+		            <div class="step__content">
+		              <p class="step__number"><i class="fas fa-map-marker-alt"></i></p>
+		              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+		                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+		                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+		              </svg>
 
-						<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm">Add Dish</button><% end %>
-					  <ul class>
-					    <%= f.nested_fields_for :dishes do |dishes_form| %>
-					      <li>
-					        <%= dishes_form.label :name %>
-					        <%= dishes_form.text_field :name %>
-									<%= dishes_form.label :description %>
-									<%= dishes_form.text_field :description %>
-									<%= dishes_form.label :"category, [TBU]" %>
-									<%= dishes_form.select :course, ['Starter', 'Main', 'Dessert', 'Beverage'] %>
-									<%= dishes_form.label :price %>
-									<%= dishes_form.text_field :price %>
-									<%= dishes_form.remove_nested_fields_link %>
-					      </li>
-							<% end %>
-						</ul>
+		              <div class="lines">
+		                <div class="line -start">
+		                </div>
 
+		                <div class="line -background">
+		                </div>
+
+		                <div class="line -progress">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="step">
+		            <div class="step__content">
+		              <p class="step__number"><i class="fas fa-utensils"></i></p>
+		              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+		                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+		                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+		              </svg>
+
+		              <div class="lines">
+		                <div class="line -background">
+		                </div>
+
+		                <div class="line -progress">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="step">
+		            <div class="step__content">
+		              <p class="step__number"><i class="fas fa-truck"></i></p>
+		              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+		                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+		                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+		              </svg>
+
+		              <div class="lines">
+		                <div class="line -background">
+		                </div>
+
+		                <div class="line -progress">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="step">
+		            <div class="step__content">
+		              <p class="step__number"><i class="fas fa-camera-retro"></i></p>
+		              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+		                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+		                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+		              </svg>
+
+		              <div class="lines">
+		                <div class="line -background">
+		                </div>
+
+		                <div class="line -progress">
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+	        	</nav>
 	        </div>
+	      </header>
 
-					<!-- Panel 3 -->
-	        <div class="panel">
-	          <header class="panel__header">
-	            <h2 class="panel__title">Truck & event dates</h2>
-	            <p class="panel__subheading">We have 3 types of foodtrucks here at [FWF] - hover over each to find out more.</p>
-	          </header>
 
-	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+	      <div class="panels">
+					<%= form_for @event do |f| %>
 
-						<div class="card-deck">
+						<!-- Panel 1 -->
+		        <div class="panel">
+		          <header class="panel__header">
+		            <h2 class="panel__title">Event details</h2>
+		            <p class="panel__subheading">Give your event a cool name, and tell us where it'll be at. </p>
+		            <div style="visibility: hidden; height: 0;">
+		            	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.
+		            </div>
+		          </header>
 
-							<div class="card">
-								<a href="" id="modal-truck-basic" data-toggle="modal" data-target="#truckModal">
-								  <img class="card-img-top" src=<%= image_url 'truck_basic.jpg' %> alt="Basic truck">
-								  <div class="card-body">
-								    <h5 class="card-title">Basic truck</h5>
-								    <p class="card-text">S$200/day</p>
-								  </div>
-								</a>
+						  <div class="form-group">
+						    <%= f.label :title %>
+						    <%= f.text_field :title, class: 'form-control', placeholder: 'e.g. Big Beef Bonanza' %>
+						  </div>
+						  <div class="form-group">
+						    <%= f.label :description %>
+						    <%= f.text_area :description, class: 'form-control', placeholder: 'What type(s) of food will you be serving? Tell us a bit about your event.' %>
+						  </div>
+						  <div class="form-group">
+						    <%= f.label :'street address' %>
+						    <%= f.text_field :address, class: 'form-control', placeholder: '', id: 'addressInput' %>
+						  </div>
+						  <div class="form-group">
+						    <%= f.label :'postcode' %>
+						    <div class="input-group">
+							    <div class="input-group-prepend">
+					          <span class="input-group-text">Singapore</span>
+					        </div>
+							    <%= f.text_field :postcode, class: 'form-control', id: 'postcodeInput' %>
+						    </div>
+						  </div>
+
+		        </div>
+
+						<!-- Panel 2 -->
+		        <div class="panel">
+		          <header class="panel__header">
+		            <h2 class="panel__title">Your menu</h2>
+		            <p class="panel__subheading">Showcase your best dishes to hungry customers!</p>
+		          </header>
+
+							<%= f.add_nested_fields_link :dishes do %><button class="btn btn-primary btn-sm mb-2">Add Dish</button><% end %>
+						  <!-- <ul class="list-group"> -->
+						  <ul class="list-group list-group-flush">
+						    <%= f.nested_fields_for :dishes do |dishes_form| %>
+						      <li class="list-group-item">
+										<div class="form-row">
+											<div class="form-group col-md-8">
+							        <%= dishes_form.label :name %>
+							        <%= dishes_form.text_field :name %>
+							     		</div>
+											<div class="form-group col-md-4">
+											<%= dishes_form.label :"category, [TBU]" %>
+											<%= dishes_form.select :course, ['Starter', 'Main', 'Dessert', 'Beverage'] %>
+							     		</div>
+										</div>
+
+										<%= dishes_form.label :description %>
+										<%= dishes_form.text_field :description %>
+
+										<%= dishes_form.label :price %>
+										<%= dishes_form.text_field :price %>
+
+										<%= dishes_form.remove_nested_fields_link %>
+
+						      </li>
+								<% end %>
+							</ul>
+
+		        </div>
+
+						<!-- Panel 3 -->
+		        <div class="panel">
+		          <header class="panel__header">
+		            <h2 class="panel__title">Truck & event dates</h2>
+		            <p class="panel__subheading">We have 3 types of foodtrucks here at [FWF] - hover over each to find out more.</p>
+		          </header>
+
+		          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+
+							<div class="card-deck">
+
+								<div class="card">
+									<a href="" id="modal-truck-basic" data-toggle="modal" data-target="#truckModal">
+									  <img class="card-img-top" src=<%= image_url 'truck_basic.jpg' %> alt="Basic truck">
+									  <div class="card-body">
+									    <h5 class="card-title">Basic truck</h5>
+									    <p class="card-text">S$200/day</p>
+									  </div>
+									</a>
+								</div>
+
+								<div class="card">
+									<a href="" id="modal-truck-kitchen" data-toggle="modal" data-target="#truckModal">
+									  <img class="card-img-top" src=<%= image_url 'truck_kitchen.jpg' %> alt="Kitchen truck">
+									  <div class="card-body">
+									    <h5 class="card-title">Kitchen truck</h5>
+									    <p class="card-text">S$500/day</p>
+									  </div>
+									</a>
+								</div>
+
+								<div class="card">
+									<a href="" id="modal-truck-freezer" data-toggle="modal" data-target="#truckModal">
+									  <img class="card-img-top" src=<%= image_url 'truck_freezer.jpg' %> alt="Freezer truck">
+									  <div class="card-body">
+									    <h5 class="card-title">Freezer truck</h5>
+									    <p class="card-text">S$250/day</p>
+									  </div>
+									</a>
+								</div>
+
 							</div>
 
-							<div class="card">
-								<a href="" id="modal-truck-kitchen" data-toggle="modal" data-target="#truckModal">
-								  <img class="card-img-top" src=<%= image_url 'truck_kitchen.jpg' %> alt="Kitchen truck">
-								  <div class="card-body">
-								    <h5 class="card-title">Kitchen truck</h5>
-								    <p class="card-text">S$500/day</p>
-								  </div>
-								</a>
-							</div>
+		          <p id="eventStartDateShow"></p>
+							<p id="eventEndDateShow"></p>
+		          <p>
+								<%= f.label :"Start time" %><br>
+								<%= f.time_select :start_time, minute_step: 15, ampm: true %>
+							</p>
+							<p>
+								<%= f.label :"End time" %><br>
+								<%= f.time_select :end_time, minute_step: 15, ampm: true %>
+							</p>
+							<p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+		        </div>
 
-							<div class="card">
-								<a href="" id="modal-truck-freezer" data-toggle="modal" data-target="#truckModal">
-								  <img class="card-img-top" src=<%= image_url 'truck_freezer.jpg' %> alt="Freezer truck">
-								  <div class="card-body">
-								    <h5 class="card-title">Freezer truck</h5>
-								    <p class="card-text">S$250/day</p>
-								  </div>
-								</a>
-							</div>
+						<!-- Panel 4 -->
+		        <div class="panel">
+		          <header class="panel__header">
+		            <h2 class="panel__title">Photo</h2>
+		            <p class="panel__subheading">Finally, upload a snazzy photo to show-off your event!</p>
+		          </header>
 
-						</div>
+						  <div class="form-group">
+						    <%= f.file_field :photo_url, class: "form-control-file"  %>
+						  </div>
 
-	          <p id="eventStartDateShow"></p>
-						<p id="eventEndDateShow"></p>
-	          <p>
-							<%= f.label :"Start time" %><br>
-							<%= f.time_select :start_time, minute_step: 15, ampm: true %>
-						</p>
-						<p>
-							<%= f.label :"End time" %><br>
-							<%= f.time_select :end_time, minute_step: 15, ampm: true %>
-						</p>
-						<p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
-	        </div>
+		          <!-- <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p> -->
+		        </div>
+		      </div>
 
-					<!-- Panel 4 -->
-	        <div class="panel">
-	          <header class="panel__header">
-	            <h2 class="panel__title">Photo</h2>
-	            <p class="panel__subheading">Finally, upload a snazzy photo to show-off your event!</p>
-	          </header>
+					<!-- Forward/Back buttons -->
+		      <div class="wizard__footer">
+		        <button type="button" class="button previous">Previous</button>
+		        <button type="button" class="button next">Next</button>
+		      </div>
 
-					  <p>
-					    <%= f.file_field :photo_url %>
-					  </p>
+			  <%= f.hidden_field :start_date, id: 'eventStartDateHidden' %>
+			  <%= f.hidden_field :end_date, id: 'eventEndDateHidden' %>
+			  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
+				<%= f.hidden_field :lng, id: 'longitudeHidden' %>
+				<%= f.hidden_field :views, value: 0 %>
+				<%= f.hidden_field :truck_id, value: nil %>
+				<% end %>
 
-	          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
-	        </div>
-	      </div>
+	    </div>
+			<!-- After submit -->
+	    <h1 class="wizard__congrats-message">
+	      Well done, you're all set!
+	    </h1>
 
-				<!-- Forward/Back buttons -->
-	      <div class="wizard__footer">
-	        <button type="button" class="button previous">Previous</button>
-	        <button type="button" class="button next">Next</button>
-	      </div>
-
-		  <%= f.hidden_field :start_date, id: 'eventStartDateHidden' %>
-		  <%= f.hidden_field :end_date, id: 'eventEndDateHidden' %>
-		  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
-			<%= f.hidden_field :lng, id: 'longitudeHidden' %>
-			<%= f.hidden_field :views, value: 0 %>
-			<%= f.hidden_field :truck_id, value: nil %>
-			<% end %>
-
-    </div>
-		<!-- After submit -->
-    <h1 class="wizard__congrats-message">
-      Well done, you're all set!
-    </h1>
-
-  </div>
+	  </div>
+	</div>
 </div>
-
 
 <!-- Truck modal -->
 <div class="modal fade" id="truckModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

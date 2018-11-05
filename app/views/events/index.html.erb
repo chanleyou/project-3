@@ -25,13 +25,15 @@
 					</div>
 				<% end %>
 			</div>
-			<div id="map"></div>
+			<div class="map-container">
+				<div id="map"></div>
+			</div>
 		</div>
 
 		<!-- Events display -->
 		<div class="col">
 		<!-- <div class="col"> -->
-			<h1 class="display-4 mb-4">Events</h1>
+			<h2 class="mb-4">Events</h2>
 			<div class="card-deck">
 
 					<% @events.each do |event| %>
