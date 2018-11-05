@@ -23,12 +23,12 @@
 				<h4 class="text-center mb-4">Menu</h4>
 			<% end %>
 				<div class="row">
+				<% @event.dishes.each do |dish| %>
 					<div class="col-12 col-md-6">
-						<% @event.dishes.each do |dish| %>
 							<p><strong><%= dish.name %></strong><span class="float-right"><%= number_to_currency(dish.price) %></span><br>
 							<%= dish.description %></p>
+							</div>
 						<% end %>
-					</div>
 				</div>
 			</div>
 		</div>
