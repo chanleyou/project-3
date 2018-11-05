@@ -19,29 +19,25 @@
 	color: #8C0902;
 }
 
-.search-sidebar {
-	min-width: 400px;
-	max-width: 400px;
+@media only screen and (min-width: 576px) {
+	.search-sidebar {
+		min-width: 450px;
+		max-width: 450px;
+	}
 }
 
 @media only screen and (max-width: 576px) {
-    .search-sidebar {
-    	width: 100%;
-    }
 
     .map-container {
 			height: 20vh;
+			width: 100%;
+			margin: 0;
+			box-sizing: border-box;
 		}
 }
 
 .events-index-body {
-	height: 100%;
-	overflow: scroll;
-}
-
-.card-deck {
-	height: 70vh;
-	overflow: scroll;
+	max-height: 100%;
 }
 
 .eventcard {
