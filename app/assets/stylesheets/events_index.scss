@@ -11,6 +11,21 @@
 	height: 400px;
 }
 
+.search-sidebar {
+	min-width: 400px;
+	max-width: 400px;
+}
+
+.events-index-body {
+	height: 100%;
+	overflow: scroll;
+}
+
+.card-deck {
+	height: 70vh;
+	overflow: scroll;
+}
+
 .eventcard {
 	a img {
 		width: 100%;
@@ -38,7 +53,7 @@
 // Bootstrap 4 breakpoints & gutter
 $grid-breakpoints: (
     xs: 0,
-    sm: 576px,
+    // sm: 576px,
     md: 768px,
     lg: 992px,
     xl: 1200px,
@@ -50,8 +65,8 @@ $grid-gutter-width: 30px !default;
 // number of cards per line for each breakpoint
 $cards-per-line: (
     xs: 1,
-    sm: 1,
-    md: 2,
+    // sm: 1,
+    md: 1,
     lg: 2,
     xl: 3,
     xx: 4

@@ -109,7 +109,7 @@ function initMap() {
                     fillOpacity: 0.35,
                     map: map,
                     center: position_search,
-                    radius: 1500
+                    radius: 2500
                 });
 
                 addMarkers();

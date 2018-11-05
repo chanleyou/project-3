@@ -4,16 +4,24 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12">
-				<div class="card bg-white p-4 shadow-lg">
+				<div class="card p-4 shadow-lg" style="background-color: rgba(255, 255, 255, 1);">
 					<h2 class="mb-3 text-left ml-1">Feeling hungry?</h2>
+
 					<%= form_for :search, url: events_path, method: :get do |f| %>
-						<div class="form-group input-group">
-							<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead rounded-0', placeholder: 'Search' %>
-							<div class="input-group-append">
+						<div class="form-group input-group searchbar-group">
+							<input class="search-toggle" type="checkbox" checked>
+							<div class="search-gen">
+								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control input typeahead rounded-0', placeholder: 'Search events' %>
+							</div>
+							<div class="search-loc d-none">
+								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control input rounded-0', placeholder: 'Enter your postal code' %>
+							</div>
+							<div class="input-group-append input">
 								<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-danger rounded-0' %>
 							</div>
 						</div>
 					<% end %>
+
 				</div>
 			</div>
 		</div>
@@ -42,8 +50,8 @@
 						<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 					</div>
 					<div class="card-body py-1 px-0">
-						<p class="card-text small"><%= event.start_date.strftime("%a %-d/%-m/%y") %> to <%= event.end_date.strftime("%a %-d/%-m/%y") %><br>
-						<%= event.address %> <%= event.postcode %></p>
+						<p class="card-text small"><%= event.start_date.strftime("%a, #{event.start_date.day.ordinalize} %b") %> - <%= event.end_date.strftime("%a, #{event.end_date.day.ordinalize} %b") %><br>
+						<%= event.address %>, S<%= event.postcode %></p>
 					</div>
 				</div>
 
@@ -67,8 +75,8 @@
 			<p class="text-light" style="position: absolute; right: 1rem; top: 0.75rem;"><%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1"></p>
 		</div>
 		<div class="card-body py-1 px-0">
-			<p class="card-text small"><%= event.start_date.strftime("%a %-d/%-m/%y") %> to <%= event.end_date.strftime("%a %-d/%-m/%y") %><br>
-			<%= event.address %> <%= event.postcode %></p>
+			<p class="card-text small"><%= event.start_date.strftime("%a, #{event.start_date.day.ordinalize} %b") %> - <%= event.end_date.strftime("%a, #{event.end_date.day.ordinalize} %b") %><br>
+			<%= event.address %>, S<%= event.postcode %></p>
 		</div>
 	</div>
 
@@ -79,3 +87,6 @@
 	</div>
 
 </div>
+
+
+<%= javascript_include_tag "events_landing" %>

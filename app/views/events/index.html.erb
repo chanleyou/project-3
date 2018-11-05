@@ -7,22 +7,21 @@
 	<div class="row my-4">
 
 		<!-- Left sidebar -->
-		<div class="col-xl-3 col-lg-4 col-md-5">
+		<div class="col search-sidebar">
+		<!-- <div class="col search-sidebar"> -->
 			<div>
 				<%= form_for :search, url: events_path, method: :get do |f| %>
-					<div class="form-group row">
-						<div class="col-8 col-md-9">
+					<div class="form-group input-group searchbar-group">
 							<input class="search-toggle" type="checkbox" checked>
 							<div class="search-gen">
-								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search events' %>
+								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead rounded-0', placeholder: 'Search events' %>
 							</div>
 							<div class="search-loc d-none">
-								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control', placeholder: 'Your postal code' %>
+								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control rounded-0', placeholder: 'Your postal code' %>
 							</div>
-						</div>
-						<div class="col-3 col-md-2">
-							<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-primary' %>
-						</div>
+							<div class="input-group-append">
+								<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-danger rounded-0' %>
+							</div>
 					</div>
 				<% end %>
 			</div>
@@ -30,40 +29,41 @@
 		</div>
 
 		<!-- Events display -->
-		<div class="col-xl-9 col-lg-8 col-md-7">
+		<div class="col">
+		<!-- <div class="col"> -->
 			<h1 class="display-4 mb-4">Events</h1>
-				<div class="card-deck">
+			<div class="card-deck">
 
-						<% @events.each do |event| %>
-							<div class="eventcard card mb-4 p-2 mx-2 bg-white" id=<%= event.id %>>
-								<div class="card-img-top">
-									<a href='<%= event_path(event) %>'>
-										<%= cl_image_tag(event.photo_url) %>
-									</a>
-									<!-- <h5 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h5> -->
-									<p class="badge badge-pill badge-danger p-1 px-2"></p>
-									<p class="viewcount text-light">
-										<%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1">
-									</p>
-								</div>
-								<div class="card-body py-1 px-0 mt-1">
-									<strong><%= event.title %></strong>
-									<p class="card-text small">
-										<%= event.description %><br>
+					<% @events.each do |event| %>
+						<div class="eventcard card mb-4 p-2 mx-2 bg-white" id=<%= event.id %>>
+							<div class="card-img-top">
+								<a href='<%= event_path(event) %>'>
+									<%= cl_image_tag(event.photo_url) %>
+								</a>
+								<!-- <h5 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h5> -->
+								<p class="badge badge-pill badge-danger p-1 px-2"></p>
+								<p class="viewcount text-light">
+									<%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1">
+								</p>
+							</div>
+							<div class="card-body py-1 px-0 mt-1">
+								<strong><%= event.title %></strong>
+								<p class="card-text small">
+									<%= event.description %><br>
 <!-- 										<%= event.address %> -->
 <!-- 										S<%= event.postcode %> -->
-									</p>
-								</div>
-								<div class="card-footer p-0 border-0 bg-transparent">
-						      <small>
-						      <%= event.start_date.strftime("%a, #{event.start_date.day.ordinalize} %b") %> - <%= event.end_date.strftime("%a, #{event.end_date.day.ordinalize} %b") %><br>
-									<%= event.start_time.strftime("%-I:%M%P") %> to <%= event.end_time.strftime("%-I:%M%P") %>
-						      </small>
-						    </div>
+								</p>
 							</div>
-						<% end %>
+							<div class="card-footer p-0 border-0 bg-transparent">
+					      <small>
+					      <%= event.start_date.strftime("%a, #{event.start_date.day.ordinalize} %b") %> - <%= event.end_date.strftime("%a, #{event.end_date.day.ordinalize} %b") %><br>
+								<%= event.start_time.strftime("%-I:%M%P") %> to <%= event.end_time.strftime("%-I:%M%P") %>
+					      </small>
+					    </div>
+						</div>
+					<% end %>
 
-				</div>
+			</div>
 		</div>
 	</div>
 </div>

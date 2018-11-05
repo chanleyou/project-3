@@ -24,6 +24,7 @@
 //= require typeahead
 
 //= stub events_new.js
+//= stub events_landing.js
 //= stub events_index.js
 //= stub wizform.js
 
