@@ -7,7 +7,7 @@
 // }
 
 .map-container {
-	height: 70vh;
+	height: 75vh;
 }
 
 .map-container #map {
@@ -19,26 +19,39 @@
 	color: #8C0902;
 }
 
-@media only screen and (min-width: 576px) {
+.search-sidebar {
+	width: 450px;
+}
+
+.events-card-deck {
+	height: 75vh;
+	overflow: scroll;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+	.search-gen, .search-loc {
+	  width: -webkit-calc(100% - 145px);
+	  width:    -moz-calc(100% - 145px);
+	  width:         calc(100% - 145px);
+	}
+
+	.events-index-body {
+		margin: 2%;
+		margin-top: 4%;
+	}
+
 	.search-sidebar {
-		min-width: 450px;
-		max-width: 450px;
+		width: 100%;
+	}
+
+  .map-container {
+		height: 20vh;
+		width: 100%;
 	}
 }
 
-@media only screen and (max-width: 576px) {
-
-    .map-container {
-			height: 20vh;
-			width: 100%;
-			margin: 0;
-			box-sizing: border-box;
-		}
-}
-
-.events-index-body {
-	max-height: 100%;
-}
 
 .eventcard {
 	a img {

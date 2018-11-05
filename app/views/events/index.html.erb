@@ -7,8 +7,8 @@
 	<div class="row my-4">
 
 		<!-- Left sidebar -->
-		<div class="col-12 col-md search-sidebar">
-		<!-- <div class="col search-sidebar"> -->
+		<!-- <div class="col-12 col-md search-sidebar"> -->
+		<div class="search-sidebar mx-4">
 			<div>
 				<%= form_for :search, url: events_path, method: :get do |f| %>
 					<div class="form-group input-group searchbar-group">
@@ -31,10 +31,10 @@
 		</div>
 
 		<!-- Events display -->
-		<div class="col-12 col-md">
+		<div class="col-md events-index-body">
 		<!-- <div class="col"> -->
 			<h2 class="mb-4">Events</h2>
-			<div class="card-deck">
+			<div class="card-deck events-card-deck">
 
 					<% @events.each do |event| %>
 						<div class="eventcard card mb-4 p-2 mx-2 bg-white" id=<%= event.id %>>
