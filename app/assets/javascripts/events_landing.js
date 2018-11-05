@@ -20,6 +20,7 @@ window.onload = function() {
 
 
 function toggleSearchBars() {
+
     if (searchLoc.classList.contains("d-none")) {
         document.getElementById("q").value = null;
         searchGen.classList.add("d-none");
