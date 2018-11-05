@@ -11,6 +11,7 @@ gem 'nested_form_fields'
 gem 'gon'
 gem 'momentjs-rails'
 gem 'elasticsearch-model'
+gem 'bonsai-elasticsearch-rails'
 gem 'elasticsearch-rails'
 gem 'searchkick'
 
