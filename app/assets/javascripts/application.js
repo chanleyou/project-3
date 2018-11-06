@@ -21,7 +21,7 @@
 //= require bootstrap.min
 //= require nested_form_fields
 //= require moment
-//= require typeahead
+//= require typeahead.bundle.min
 
 //= stub events_new.js
 //= stub events_landing.js
