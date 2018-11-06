@@ -73,7 +73,7 @@
 
 
 <%= javascript_include_tag "events_index" %>
-<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFHJd-010wTpUGyWk2qY8djx5kwywzdU&libraries=geometry&callback=initMap"></script>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_KEY"]}&libraries=geometry&callback=initMap", async: true, defer: true %>
 
 
 

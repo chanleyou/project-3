@@ -315,9 +315,7 @@
 <%= javascript_include_tag "wizform" %>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
-<!-- <script defer src="https://use.fontawesome.com/releases/v5.4.2/js/all.js" integrity="sha384-wp96dIgDl5BLlOXb4VMinXPNiB32VYBSoXOoiARzSTXY+tsK8yDTYfvdTyqzdGGN" crossorigin="anonymous"></script> -->
-<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFHJd-010wTpUGyWk2qY8djx5kwywzdU&libraries=places&callback=initAutocomplete"></script>
-
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_KEY"]}&libraries=places&callback=initAutocomplete", async: true, defer: true %>
 
 
 

@@ -96,6 +96,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     elasticsearch (6.1.0)
       elasticsearch-api (= 6.1.0)
       elasticsearch-transport (= 6.1.0)
@@ -279,6 +283,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   gon
   jbuilder (~> 2.5)
   jquery-rails
@@ -301,4 +306,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
