@@ -16,6 +16,10 @@ $(document).ready(function () {
     $('.search-toggle').change(function() {
       toggleSearchBars();
     })
+
+    if (document.querySelectorAll(".twitter-typeahead")[1]) {
+        document.querySelectorAll(".twitter-typeahead")[1].remove();
+    };
 });
 
 
