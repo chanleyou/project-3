@@ -16,7 +16,6 @@
 //= require jquery3
 //= require_tree .
 //= require popper
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require bootstrap.min
 //= require nested_form_fields
