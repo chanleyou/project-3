@@ -179,6 +179,12 @@ function initMap() {
                 bounds.extend(position);
                 map.fitBounds(bounds);
 
+                google.maps.event.addListenerOnce(map, 'idle', function() { // Prevents map being too zoomed-in if only 1 search result
+                  if (gon.events.length === 1) {
+                    map.setZoom(16);
+                  }
+                });
+
                 marker.addListener('click', function() {
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     infowindow.open(map, this);

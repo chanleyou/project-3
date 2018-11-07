@@ -14,79 +14,87 @@
 
 
 	<body>
+		<div class="body-wrapper">
 
-	<div class="body-wrapper">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+				<div class="container-fluid">
+	  			<a class="navbar-brand" href="/">Foodtruckr</a>
+	  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    			<span class="navbar-toggler-icon"></span>
+	  			</button>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-	<div class="container-fluid">
-  <a class="navbar-brand" href="/">Foodtruckr</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<button type="button" class="btn btn-link nav-link border-0" data-toggle="modal" data-target="#faqModal">FAQ</button>
-			</li>
-			<li class="nav-item">
-			<%= link_to 'Events', events_path, class: 'nav-link' %>
-			</li>
-      <li class="nav-item">
-			<%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<% if chef_signed_in? %><%= current_chef.username %><% elsif customer_signed_in? %><%= current_customer.username %><% else %>Login<% end %>
-        </a>
-				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-				<% if chef_signed_in? %>
-				<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
-				<%= link_to 'New Event', new_event_path, class: 'dropdown-item' %>
-				<%= link_to 'Edit Profile', edit_chef_registration_url, class: 'dropdown-item' %>
-				<div class="dropdown-divider"></div>
-				<%= link_to 'Log Out', destroy_chef_session_url, method: :delete, class: 'dropdown-item' %>
-				<% elsif customer_signed_in? %>
-				<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
-				<%= link_to 'Edit Account', edit_customer_registration_url, class: 'dropdown-item' %>
-				<div class="dropdown-divider"></div>
-				<%= link_to 'Log Out', destroy_customer_session_url, method: :delete, class: 'dropdown-item' %>
-				<% else %>
-				<%= link_to 'User', new_customer_session_url, class: 'dropdown-item' %>
-				<%= link_to 'Chef', new_chef_session_url, class: 'dropdown-item' %>
-				<div class="dropdown-divider"></div>
-				<%= link_to 'Register (User)', new_customer_registration_path, class: 'dropdown-item' %>
-				<%= link_to 'Register (Chef)', new_chef_registration_path, class: 'dropdown-item' %>
-				<% end %>
-        </div>
-      </li>
-    </ul>
-	</div>
-</nav>
-
-		<%= yield %>
-		<div class="container"><div class="row"><div class="col-12 my-5"></div></div></div>
-		<footer class="container-fluid bg-dark">
-
-		<div class="container">
-
-			<div class="row pt-3 pb-2">
-				<div class="col-6" style="display: flex; align-items: center;	">
-					<p class="text-light small m-0" style="font-family: Menlo, Consolas, monospace;">Made with &#128169; by:<br>
-					<a href="#" class="text-light"><i class="fab fa-linkedin"></i> Ken</a> <a href="#" class="text-light"><i class="fab fa-linkedin"></i> Taras</a> <a href="#" class="text-light"><i class="fab fa-linkedin"></i> Le You</a></p>
+	  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<button type="button" class="btn btn-link nav-link border-0" data-toggle="modal" data-target="#faqModal">FAQ</button>
+							</li>
+							<li class="nav-item">
+								<%= link_to 'Events', events_path, class: 'nav-link' %>
+							</li>
+				      <li class="nav-item">
+								<%= link_to 'Chefs', chefs_path, class: 'nav-link' %>
+				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<% if chef_signed_in? %><%= current_chef.username %><% elsif customer_signed_in? %><%= current_customer.username %><% else %>Login<% end %>
+				        </a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+									<% if chef_signed_in? %>
+									<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
+									<%= link_to 'New Event', new_event_path, class: 'dropdown-item' %>
+									<%= link_to 'Edit Profile', edit_chef_registration_url, class: 'dropdown-item' %>
+									<div class="dropdown-divider"></div>
+									<%= link_to 'Log Out', destroy_chef_session_url, method: :delete, class: 'dropdown-item' %>
+									<% elsif customer_signed_in? %>
+									<%= link_to 'Your Orders', orders_path, class: 'dropdown-item' %>
+									<%= link_to 'Edit Account', edit_customer_registration_url, class: 'dropdown-item' %>
+									<div class="dropdown-divider"></div>
+									<%= link_to 'Log Out', destroy_customer_session_url, method: :delete, class: 'dropdown-item' %>
+									<% else %>
+									<%= link_to 'User', new_customer_session_url, class: 'dropdown-item' %>
+									<%= link_to 'Chef', new_chef_session_url, class: 'dropdown-item' %>
+									<div class="dropdown-divider"></div>
+									<%= link_to 'Register (User)', new_customer_registration_path, class: 'dropdown-item' %>
+									<%= link_to 'Register (Chef)', new_chef_registration_path, class: 'dropdown-item' %>
+									<% end %>
+				        </div>
+				      </li>
+				    </ul>
+					</div>
 				</div>
-				<div class="col-6 footer-logo" style="display: flex; align-items: center; flex-direction: row-reverse; ">
-				<%= image_tag "ga-logo.png", class: "img-fluid" %>
+			</nav>
+
+
+			<%= yield %>
+
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12 my-5"></div>
 				</div>
 			</div>
-			</div>
 
+			<footer class="container-fluid bg-dark">
 
+				<div class="container-fluid">
+					<div class="row pt-3 pb-2">
+						<!-- <div class="col-6" style="display: flex; align-items: center;	"> -->
+						<div class="col-6">
+							<p class="text-light small m-0" style="font-family: Menlo, Consolas, monospace;">Made with &#128169; by:<br>
+								<a href="#" class="text-light"><i class="fab fa-linkedin"></i> Ken</a> <a href="#" class="text-light"><i class="fab fa-linkedin"></i> Taras</a> <a href="#" class="text-light"><i class="fab fa-linkedin"></i> Le You
+								</a>
+							</p>
+						</div>
+						<div class="col-6 footer-logo" style="display: flex; align-items: center; flex-direction: row-reverse; ">
+							<%= image_tag "ga-logo.png", class: "img-fluid" %>
+						</div>
+					</div>
+				</div>
 			</footer>
+
+		</div>
 	</body>
 
-
-</div>
 
 	<div class="modal fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">

@@ -15,8 +15,8 @@ ready = function() {
     var promise = engine.initialize();
 
     promise
-        .done(function() { console.log('success!'); })
-		.fail(function() { console.log('err!'); });
+        .done(function() { console.log('Typeahead Bloodhound initialized.'); })
+		.fail(function() { console.log('Error initializing Typeahead Bloodhound.'); });
 
 
     $('.typeahead').typeahead(null, {
