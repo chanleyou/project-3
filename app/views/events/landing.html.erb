@@ -8,16 +8,16 @@
 					<h2 class="mb-3 text-left ml-1">Feeling hungry?</h2>
 
 					<%= form_for :search, url: events_path, method: :get do |f| %>
-						<div class="form-group input-group searchbar-group">
-							<input class="search-toggle" type="checkbox" checked>
+						<div class="input-group searchbar-group">
+							<input class="input-group-prepend search-toggle" type="checkbox" checked>
 							<div class="search-gen">
-								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control input typeahead rounded-0', placeholder: 'Search events' %>
+								<%= text_field_tag :q, params[:q], class: 'form-control-lg form-control typeahead', placeholder: 'Search events' %>
 							</div>
 							<div class="search-loc d-none">
-								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control input rounded-0', placeholder: 'Enter your postal code' %>
+								<%= number_field_tag :p, params[:p], class: 'form-control-lg form-control', placeholder: 'Enter your postal code' %>
 							</div>
 							<div class="input-group-append input">
-								<%= submit_tag "Go", name: nil, class: 'btn btn-lg btn-danger rounded-0' %>
+								<%= submit_tag "Go", name: nil, class: 'btn-lg btn-danger' %>
 							</div>
 						</div>
 					<% end %>
