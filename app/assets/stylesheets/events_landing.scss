@@ -9,6 +9,10 @@
 	align-items: center;
 }
 
+.searchbar-back {
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
 @media only screen and (max-width: 1080px) {
 	.hero {
 		background-position: center left;
@@ -20,4 +24,16 @@
 		min-height: 325px;
 		background-position: center left;
 	}
+}
+
+
+// Rounded-borders search bar
+.searchbar-back {
+	border-radius: 2rem;
+}
+input.btn-danger {
+	border-radius: 0 1rem 1rem 0;
+}
+.toggle {
+	border-radius: 1rem 0 0 1rem;
 }
