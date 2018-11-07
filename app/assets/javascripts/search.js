@@ -16,7 +16,7 @@ ready = function() {
 
     promise
         .done(function() { console.log('success!'); })
-				.fail(function() { console.log('err!'); });
+		.fail(function() { console.log('err!'); });
 
 
     $('.typeahead').typeahead(null, {
@@ -27,4 +27,4 @@ ready = function() {
 }
 
 $(document).ready(ready);
-// $(document).on('page:load', ready);
+$(document).on('page:load', ready);
