@@ -1,7 +1,9 @@
-window.onload = function() {
 
-    searchGen = document.querySelector(".twitter-typeahead");
-    searchLoc = document.querySelector(".search-loc");
+searchGen = document.querySelector(".search-gen");
+searchLoc = document.querySelector(".search-loc");
+
+
+$(document).ready(function () {
 
     $(".search-toggle").bootstrapToggle({
       on: '<i class="fas fa-info"></i>',
@@ -14,7 +16,7 @@ window.onload = function() {
     $('.search-toggle').change(function() {
       toggleSearchBars();
     })
-};
+});
 
 
 function toggleSearchBars() {

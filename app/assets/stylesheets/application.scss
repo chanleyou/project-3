@@ -44,20 +44,19 @@ footer {
 	border-radius: 0;
 }
 
-div.card span.twitter-typeahead {
-  width: -webkit-calc(100% - 138px);
-  width:    -moz-calc(100% - 138px);
-  width:         calc(100% - 138px);
+.search-gen, .search-loc {
+  width: -webkit-calc(100% - 145px);
+  width:    -moz-calc(100% - 145px);
+  width:         calc(100% - 145px);
+}
+
+span.twitter-typeahead {
+	width: 100% !important;
 }
 
 // Disable number spinners for search bar
-input.search-loc[type=number]::-webkit-inner-spin-button,
-input.search-loc[type=number]::-webkit-outer-spin-button {
+.search-loc input[type=number]::-webkit-inner-spin-button,
+.search-loc input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-
-
-
-
