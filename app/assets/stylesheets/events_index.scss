@@ -15,6 +15,15 @@
 .search-sidebar {
 	width: 25vw;
 	min-width: 450px;
+
+	// Rounded borders on search-bar
+	input.btn-danger {
+	border-radius: 0 0.75rem 0.75rem 0 !important;
+	}
+
+	.toggle {
+		border-radius: 0.75rem 0 0 0.75rem;
+	}
 }
 
 .events-card-deck {
@@ -24,6 +33,7 @@
 
 .eventcard {
 	max-height: 30vh;
+	width: 100%;
 
 	a img {
 		width: 100%;
@@ -61,6 +71,10 @@
 	.events-index-body {
 		margin: 2%;
 		margin-top: 4%;
+	}
+
+	.eventcard {
+		max-height: 28vh;
 	}
 
 	.search-sidebar {
