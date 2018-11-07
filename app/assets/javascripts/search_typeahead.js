@@ -9,7 +9,7 @@ ready = function() {
 				remote: {
 					url: '../events/autocomplete?q=%QUERY',
 					wildcard: '%QUERY'
-				}
+			}
     });
 
     var promise = engine.initialize();
