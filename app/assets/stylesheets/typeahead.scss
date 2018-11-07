@@ -11,7 +11,8 @@
 .tt-menu {    /* used to be tt-dropdown-menu in older versions */
 	margin-top: 4px;
 	text-align: left !important;
-	width: 80% !important;
+	// width: 80% !important;
+	width: inherit;
   padding: 4px 0;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -39,6 +40,6 @@
   margin: 0;
 }
 
-.twitter-typeahead {
-	width: 80% !important;
-}
+// .twitter-typeahead {
+// 	width: 80% !important;
+// }
