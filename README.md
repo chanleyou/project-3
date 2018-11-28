@@ -1,24 +1,13 @@
-# README
+# Foodtruckr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Made by @chanleyou, @shroomcrumpet and @Rstinkho.
 
-Things you may want to cover:
+Foodtruckr is an online platform for food truck and pop-up food store events. Users can search for events by location or topic of interest and order food online, while chefs can rent trucks to organise events, create menus and manage their orders.
 
-* Ruby version
+## Technology
 
-* System dependencies
+Foodtruckr was built with Ruby on Rails and JavaScript. It uses a PostgreSQL server for storage. Other features include:
 
-* Configuration
+* Location search through Google Maps AI
+* Smart search with autocomplete using Elasticsearch and Typeahead
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
