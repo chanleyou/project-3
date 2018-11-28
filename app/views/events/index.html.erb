@@ -41,7 +41,6 @@
 								<a href='<%= event_path(event) %>'>
 									<%= cl_image_tag(event.photo_url) %>
 								</a>
-								<!-- <h5 class="text-light" style="position: absolute; left: 1rem; top: 0.75rem;"><%= event.title %></h5> -->
 								<p class="badge badge-pill badge-danger p-1 px-2"></p>
 								<p class="viewcount text-light">
 									<%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1">
@@ -50,7 +49,7 @@
 							<div class="card-body py-1 px-0 mt-1">
 								<strong><%= event.title %></strong>
 								<p class="card-text small">
-									<%= event.description %><br>
+									<!-- <%= event.description %><br> -->
 <!-- 										<%= event.address %> -->
 <!-- 										S<%= event.postcode %> -->
 								</p>
