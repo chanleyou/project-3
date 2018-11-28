@@ -63,6 +63,10 @@
 
 @media only screen and (max-width: 768px) {
 
+	.events-card-deck {
+		height: auto;
+	}
+
 	h2.events-body-title {
 		display: none;
 	}
@@ -70,10 +74,6 @@
 	.events-index-body {
 		margin: 2%;
 		margin-top: 4%;
-	}
-
-	.eventcard {
-		max-height: 28vh;
 	}
 
 	.search-sidebar {

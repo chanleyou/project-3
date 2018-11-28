@@ -46,16 +46,9 @@
 									<%= event.views %><img src=<%= image_url 'eye.png' %> width="20px" height="20px" class="align-text-bottom ml-1">
 								</p>
 							</div>
-							<div class="card-body py-1 px-0 mt-1">
-								<strong><%= event.title %></strong>
-								<p class="card-text small">
-									<!-- <%= event.description %><br> -->
-<!-- 										<%= event.address %> -->
-<!-- 										S<%= event.postcode %> -->
-								</p>
-							</div>
-							<div class="card-footer p-0 border-0 bg-transparent">
-					      <p class="small m-0">
+							<div class="card-footer pt-2 p-0 border-0 bg-transparent">
+							<strong><%= event.title %></strong>
+							<p class="small m-0">
 					      <%= event.start_date.strftime("%a, #{event.start_date.day.ordinalize} %b") %> - <%= event.end_date.strftime("%a, #{event.end_date.day.ordinalize} %b") %><br>
 								<%= event.start_time.strftime("%-I:%M%P") %> to <%= event.end_time.strftime("%-I:%M%P") %>
 					      </p>
