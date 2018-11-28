@@ -10,7 +10,7 @@
 }
 
 .searchbar-back {
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(255, 255, 255, 0.95);
 }
 
 @media only screen and (max-width: 1080px) {
@@ -38,4 +38,8 @@ input.btn-danger {
 
 .toggle {
 	border-radius: 1rem 0 0 1rem;
+}
+
+h4 {
+	text-shadow: 1px 1px grey;
 }
