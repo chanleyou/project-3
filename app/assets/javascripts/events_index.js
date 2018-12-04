@@ -54,7 +54,7 @@ function sortCards(cards) {
         if(a === "" || a === null) return 1;
         if(b === "" || b === null) return -1;
         if(a === b) return 0;
-        return a < b ? -1 : 1;
+        return parseFloat(a) < parseFloat(b) ? -1 : 1;
     });
     eventCardsArr.forEach(function (div) {
         div.parentElement.appendChild(div);
