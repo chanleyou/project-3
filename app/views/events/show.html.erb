@@ -6,7 +6,7 @@
 				<h1 class="display-4 text-center"><%= @event.title %></h1>
 				<p class="lead text-center small"><%= @event.start_date.strftime("%a #{@event.start_date.day.ordinalize} %b %Y") %> - <%= @event.end_date.strftime("%a #{@event.end_date.day.ordinalize} %b %Y") %><br>
 				<%= @event.start_time.strftime("%l:%M%P") %> to <%= @event.end_time.strftime("%l:%M%P") %><br>
-				<%= @event.address %> <%= @event.postcode %></p>
+				<%= @event.address %>, S<%= @event.postcode %></p>
 				<p class="lead text-center"><%= @event.description %>
 				<hr>
 				<p class="lead text-center">By: <%= link_to @event.chef.name, chef_path(@event.chef) %><br>
@@ -34,38 +34,38 @@
 		</div>
 
 		<% if @orders.length > 0 %>
-		
+
 		<div class="col-12">
 		<div class="card p-3 my-2 shadow-sm">
-		
+
 					<h4 class="text-center mb-3"><% if current_customer %>Your <% end %>Preorders</h4>
-					
+
 					<div class="row">
-					
+
 					<% @orders.each do |order| %>
-						
+
 						<div class="col-12 col-md-6 col-lg-4 col-xl-3">
 						<p class="small">
 						<strong>Order <%= order.id %></strong><br>
 						<% if current_chef %>Customer: <%= order.customer.username %><br><% end %>
 						Time: <%= order.time.strftime("%l:%M%P %a #{order.time.day.ordinalize} %b %Y") %><br>
 						Total: $<%= order.total %></p>
-						
+
 						<p class="small"><% order.orderitems.each do |orderitem| %>
 							<%= orderitem.quantity %> x  <%=  orderitem.dish.name %><br>
 							<% end %></p>
 							</p>
 							</div>
-							
+
 							<% end %>
 							</div>
-					
+
 				</div>
 			</div>
 
 		<% end %>
 
-	
+
 
 	</div>
 </div>
