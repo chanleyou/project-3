@@ -109,15 +109,15 @@
 
 						  <div class="form-group">
 						    <%= f.label :title %>
-						    <%= f.text_field :title, class: 'form-control', placeholder: "e.g. Bill's Big Beef Bonanza" %>
+						    <%= f.text_field :title, class: 'form-control', placeholder: "e.g. Bill's Big Beef Bonanza", required: true, minlength: 3, maxlength: 20 %>
 						  </div>
 						  <div class="form-group">
 						    <%= f.label :description %>
-						    <%= f.text_area :description, class: 'form-control', placeholder: 'What type(s) of food will you be serving? Tell us a bit about your event.' %>
+						    <%= f.text_area :description, class: 'form-control', placeholder: 'What type(s) of food will you be serving? Tell us a bit about your event.', required: true, minlength: 3 %>
 						  </div>
 						  <div class="form-group">
 						    <%= f.label :'street address' %>
-						    <%= f.text_field :address, class: 'form-control', placeholder: '', id: 'addressInput' %>
+						    <%= f.text_field :address, class: 'form-control', placeholder: '', id: 'addressInput', required: true, minlength: 3 %>
 						  </div>
 						  <div class="form-group">
 						    <%= f.label :'postcode' %>
@@ -253,7 +253,7 @@
 		          </header>
 
 						  <div class="form-group">
-						    <%= f.file_field :photo_url, class: "form-control-file"  %>
+						    <%= f.file_field :photo_url, class: "form-control-file", required: true %>
 						  </div>
 
 		          <!-- <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p> -->
@@ -266,8 +266,8 @@
 		        <button type="button" class="button next">Next</button>
 		      </div>
 
-			  <%= f.hidden_field :start_date, id: 'eventStartDateHidden' %>
-			  <%= f.hidden_field :end_date, id: 'eventEndDateHidden' %>
+			  <%= f.hidden_field :start_date, id: 'eventStartDateHidden', required: true %>
+			  <%= f.hidden_field :end_date, id: 'eventEndDateHidden', required: true %>
 			  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
 				<%= f.hidden_field :lng, id: 'longitudeHidden' %>
 				<%= f.hidden_field :views, value: 0 %>
