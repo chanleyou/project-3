@@ -125,7 +125,7 @@
 							    <div class="input-group-prepend">
 					          <span class="input-group-text">Singapore</span>
 					        </div>
-							    <%= f.text_field :postcode, class: 'form-control', id: 'postcodeInput' %>
+							    <%= f.text_field :postcode, class: 'form-control', id: 'postcodeInput', required: true, maxlength: 8 %>
 						    </div>
 						  </div>
 
@@ -227,6 +227,9 @@
 
 							</div>
 
+						  <%= f.hidden_field :start_date, id: 'eventStartDateHidden', required: true %>
+						  <%= f.hidden_field :end_date, id: 'eventEndDateHidden', required: true %>
+
 		          <p id="eventStartDateShow">&nbsp</p>
 							<p id="eventEndDateShow">&nbsp</p>
 
@@ -266,8 +269,6 @@
 		        <button type="button" class="button next">Next</button>
 		      </div>
 
-			  <%= f.hidden_field :start_date, id: 'eventStartDateHidden', required: true %>
-			  <%= f.hidden_field :end_date, id: 'eventEndDateHidden', required: true %>
 			  <%= f.hidden_field :lat, id: 'latitudeHidden' %>
 				<%= f.hidden_field :lng, id: 'longitudeHidden' %>
 				<%= f.hidden_field :views, value: 0 %>

@@ -20,7 +20,7 @@ var _createClass = function () {function defineProperties(target, props) {for (v
 
     {
       this.steps[this.currentStep].classList.add('-completed');
-      setTimeout(function() {document.getElementById("new_event").submit();}, 2500); // Form submission
+      setTimeout(function() {document.getElementById("new_event").submit();}, 2000); // Form submission
     } }, { key: 'handleStepsClasses', value: function handleStepsClasses(
 
     movement) {
@@ -157,13 +157,24 @@ Wizard = function () {
     } }, { key: 'validateMovement', value: function validateMovement(
 
     movement) {
-      var fowardMov = movement > 0 && this.currentStep < this.stepsQuantity - 1;
-      var backMov = movement < 0 && this.currentStep > 0;
 
-      return fowardMov || backMov;
+      // if (Array.from(document.querySelector(".movingIn").querySelectorAll("input")).every(e => e.checkValidity()) && Array.from(document.querySelector(".movingIn").querySelectorAll("textarea")).every(e => e.checkValidity())) { // Frontend html5 calidity check - remove this wrapper for original code
+
+        var fowardMov = movement > 0 && this.currentStep < this.stepsQuantity - 1;
+        var backMov = movement < 0 && this.currentStep > 0;
+
+        return fowardMov || backMov;
+      // } else {
+      //   var tmpSubmit = document.createElement('button');
+      //   form.appendChild(tmpSubmit);
+      //   tmpSubmit.click();
+      //   form.removeChild(tmpSubmit);
+      // };
+
     } }]);return Wizard;}();
 
 
+var form = document.querySelector('form');
 var wizardElement = document.getElementById('wizard');
 var wizard = new Wizard(wizardElement);
 var buttonNext = document.querySelector('.next');
