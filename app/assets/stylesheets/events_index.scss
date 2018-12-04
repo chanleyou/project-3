@@ -8,8 +8,10 @@
 	height: 100%;
 }
 
-.info-window-content a {
-	color: #8C0902;
+.info-window-content {
+	a, span {
+		color: #8C0902;
+	}
 }
 
 .search-sidebar {

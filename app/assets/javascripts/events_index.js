@@ -149,14 +149,14 @@ function initMap() {
 
                     dist = `${(google.maps.geometry.spherical.computeDistanceBetween(position, position_search) / 1000).toFixed(2)}km`;
                     infowindow = new google.maps.InfoWindow({
-                        content: `<div class="info-window-content">
+                        content: `<div class="info-window-content py-1">
                         <a href="/events/${gon.events[i].id}">
                             <strong>${gon.events[i].title}</strong>
                         </a>
-                        <br>${gon.events[i].description}
-                        <br>${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}
-                        <br>${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}
-                        <br>${dist} away
+                        <p><strong>"${gon.events[i].description}"</strong></p>
+                        <p>${moment(gon.events[i].start_date).format('ddd, Do MMM')} - ${moment(gon.events[i].end_date).format('ddd, Do MMM')}
+                        <br>${moment(gon.events[i].start_time).format('h:mm a')} to ${moment(gon.events[i].end_time).format('h:mm a')}</p>
+                        ${dist} away
                         </div>`
                     });
 
